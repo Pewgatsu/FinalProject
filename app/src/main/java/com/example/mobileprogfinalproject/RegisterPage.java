@@ -37,7 +37,7 @@ public class RegisterPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                getStrings();
+                setStrings();
 
                 if(confirmField(createButton)){
                     database.insertData(username,password,email);
@@ -63,7 +63,7 @@ public class RegisterPage extends AppCompatActivity {
     }
 
 
-    private void getStrings(){
+    private void setStrings(){
         email = emailField.getEditText().getText().toString();
         username = usernameField.getEditText().getText().toString().trim();
         password = passwordField.getEditText().getText().toString();
@@ -78,7 +78,6 @@ public class RegisterPage extends AppCompatActivity {
     }
 
     private boolean validateEmail(){
-
 
         if(email.isEmpty()){
             emailField.setError("Field can't be empty");
