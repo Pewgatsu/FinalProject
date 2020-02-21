@@ -3,10 +3,10 @@
 
 
     <string name="regCreateButton">Create</string>
-    <string name="email_hint">Enter email</string>
+    <string name="email_hint">Email</string>
     <string name="confirm_password">Confirm Password</string>
-    <string name="username_hint">Enter Username</string>
-    <string name="password_hint">Enter Password</string>
+    <string name="username_hint">Username</string>
+    <string name="password_hint">Password</string>
     <string name="loginButton">Login</string>
     <string name="registerButton">Sign Up</string>
     <string name="settings">Settings</string>

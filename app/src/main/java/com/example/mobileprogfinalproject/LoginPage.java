@@ -3,6 +3,7 @@ package com.example.mobileprogfinalproject;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -22,18 +23,24 @@ import androidx.appcompat.widget.Toolbar;
 
 public class LoginPage extends AppCompatActivity {
 
-    Toolbar toolbar;
-    Button loginButton, registerButton;
-    Intent intent;
-    EditText username,password;
-    String inputUsername, inputPassword;
-    final String USERNAME = "james";
-    final String PASSWORD = "james123";
+
+
+    private Toolbar toolbar;
+    private Button loginButton, registerButton;
+    private Intent intent;
+    private EditText username,password;
+    private String inputUsername, inputPassword;
+    private final String USERNAME = "james";
+    private final String PASSWORD = "james123";
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
+
+
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(" ");
         setSupportActionBar(toolbar);
