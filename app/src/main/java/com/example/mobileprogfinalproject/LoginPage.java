@@ -20,15 +20,18 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 
 public class LoginPage extends AppCompatActivity {
 
 
+    private DatabaseHelper database;
 
     private Toolbar toolbar;
     private Button loginButton, registerButton;
     private Intent intent;
-    private EditText username,password;
+    private TextInputLayout usernameField,passwordField;
     private String inputUsername, inputPassword;
     private final String USERNAME = "james";
     private final String PASSWORD = "james123";
@@ -40,44 +43,69 @@ public class LoginPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
 
+        database = new DatabaseHelper(this);
 
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(" ");
         setSupportActionBar(toolbar);
 
 
-        registerButton = findViewById(R.id.registerButton);
+        usernameField = findViewById(R.id.loginUsernameField);
+        passwordField = findViewById(R.id.loginPasswordField);
         loginButton = findViewById(R.id.loginButton);
+        registerButton = findViewById(R.id.registerButton);
 
-        username = findViewById(R.id.usernameField);
-        password = findViewById(R.id.passwordField);
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),"Signing Up...",Toast.LENGTH_SHORT).show();
                 intent = new Intent(getApplicationContext(),RegisterPage.class);
                 startActivity(intent);
             }
         });
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                inputUsername = username.getText().toString();
-                inputPassword = password.getText().toString();
-                if(inputUsername.equals(USERNAME) && inputPassword.equals(PASSWORD)){
-                    Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
-                    intent = new Intent(getApplicationContext(),UserPage.class);
-                    startActivity(intent);
-                }else{
-                    Toast.makeText(getApplicationContext(),"Login Failed",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+
+
 
 
     }
+
+    private void setStrings(){
+        inputUsername = usernameField.getEditText().getText().toString();
+        inputPassword = passwordField.getEditText().getText().toString();
+    }
+
+    private boolean validateUsername(){
+
+
+        if(inputUsername.isEmpty()){
+            usernameField.setError("Field can't be empty");
+            return false;
+        }else{
+            usernameField.setError(null);
+            return true;
+        }
+    }
+
+    private boolean validatePassword(){
+
+        if(inputPassword.isEmpty()){
+            passwordField.setError("Field can't be empty");
+            return false;
+        }else{
+            passwordField.setError(null);
+            passwordField.setErrorEnabled(false);
+            return true;
+        }
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -100,7 +128,6 @@ public class LoginPage extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 
 
