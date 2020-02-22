@@ -47,7 +47,7 @@
         android:id="@+id/regUsernameField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/login_marginTop"
         app:errorEnabled="true"
         app:counterEnabled="true"
         app:counterMaxLength="15">
@@ -68,7 +68,7 @@
         android:id="@+id/regPasswordField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/login_marginTop"
         app:passwordToggleEnabled="true"
         app:errorEnabled="true">
 
@@ -88,7 +88,7 @@
         android:id="@+id/regConfirmPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/login_marginTop"
         app:passwordToggleEnabled="true"
         app:errorEnabled="true">
 
@@ -108,7 +108,7 @@
         android:id="@+id/createButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/login_marginTop"
         android:text="@string/regCreateButton"
         android:layout_gravity="center_horizontal"/>
 
@@ -116,7 +116,7 @@
         android:id="@+id/regBackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/login_marginTop"
         android:text="@string/back"
         android:layout_gravity="center_horizontal"/>
 

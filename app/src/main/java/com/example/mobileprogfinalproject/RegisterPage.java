@@ -1,5 +1,6 @@
 package com.example.mobileprogfinalproject;
 
+import android.accounts.Account;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.view.View;
@@ -9,10 +10,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class RegisterPage extends AppCompatActivity {
 
+    private Accounts account;
     private Button backButton, createButton;
     private DatabaseHelper database;
     private TextInputLayout emailField, usernameField, passwordField, confirmpasswordField;
@@ -23,14 +26,7 @@ public class RegisterPage extends AppCompatActivity {
         setContentView(R.layout.page_register);
 
         database = new DatabaseHelper(this);
-
-        backButton = findViewById(R.id.regBackButton);
-        createButton = findViewById(R.id.createButton);
-
-        emailField = findViewById(R.id.emailField);
-        usernameField = findViewById(R.id.regUsernameField);
-        passwordField = findViewById(R.id.regPasswordField);
-        confirmpasswordField = findViewById(R.id.regConfirmPassword);
+        initializeWidgets();
 
 
         createButton.setOnClickListener(new View.OnClickListener() {
@@ -39,12 +35,14 @@ public class RegisterPage extends AppCompatActivity {
 
                 setStrings();
 
+                account = new Accounts(null,username,password,email);
+
                 if(confirmField(createButton)){
-                    database.insertData(username,password,email);
+                    database.createAccount(account);
                     Toast.makeText(RegisterPage.this, "Account Created!", Toast.LENGTH_SHORT).show();
                     clearFields();
                 }else{
-                    Toast.makeText(RegisterPage.this, "Creation Failed", Toast.LENGTH_SHORT).show();
+                    Snackbar.make(createButton,"Fields can't be empty!",Snackbar.LENGTH_LONG).show();
                 }
 
             }
@@ -68,6 +66,15 @@ public class RegisterPage extends AppCompatActivity {
         username = usernameField.getEditText().getText().toString().trim();
         password = passwordField.getEditText().getText().toString();
         confirmPassword = confirmpasswordField.getEditText().getText().toString();
+    }
+
+    private void initializeWidgets(){
+        backButton = findViewById(R.id.regBackButton);
+        createButton = findViewById(R.id.createButton);
+        emailField = findViewById(R.id.emailField);
+        usernameField = findViewById(R.id.regUsernameField);
+        passwordField = findViewById(R.id.regPasswordField);
+        confirmpasswordField = findViewById(R.id.regConfirmPassword);
     }
 
     private void clearFields(){

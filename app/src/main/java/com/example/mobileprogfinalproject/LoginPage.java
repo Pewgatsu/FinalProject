@@ -1,5 +1,6 @@
 package com.example.mobileprogfinalproject;
 
+import android.accounts.Account;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,7 +26,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class LoginPage extends AppCompatActivity {
 
-
+    private Accounts currentAccount;
     private DatabaseHelper database;
 
     private Toolbar toolbar;
@@ -33,8 +34,7 @@ public class LoginPage extends AppCompatActivity {
     private Intent intent;
     private TextInputLayout usernameField,passwordField;
     private String inputUsername, inputPassword;
-    private final String USERNAME = "james";
-    private final String PASSWORD = "james123";
+
 
 
 
@@ -44,21 +44,26 @@ public class LoginPage extends AppCompatActivity {
         setContentView(R.layout.login_page);
 
         database = new DatabaseHelper(this);
-
-        toolbar = findViewById(R.id.toolbar);
+        initializeWidgets();
         toolbar.setTitle(" ");
         setSupportActionBar(toolbar);
-
-
-        usernameField = findViewById(R.id.loginUsernameField);
-        passwordField = findViewById(R.id.loginPasswordField);
-        loginButton = findViewById(R.id.loginButton);
-        registerButton = findViewById(R.id.registerButton);
-
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                setStrings();
+
+                if(validateFields()){
+
+                    currentAccount = database.validateLogin(new Accounts(null, inputUsername, inputPassword, null));
+
+                    if(currentAccount != null){
+                        intent = new Intent(getApplicationContext(),UserPage.class);
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(LoginPage.this, "FAIL", Toast.LENGTH_SHORT).show();
+                    }
+                }
 
             }
         });
@@ -71,9 +76,15 @@ public class LoginPage extends AppCompatActivity {
             }
         });
 
+    }
 
 
-
+    private void initializeWidgets(){
+        usernameField = findViewById(R.id.loginUsernameField);
+        passwordField = findViewById(R.id.loginPasswordField);
+        loginButton = findViewById(R.id.loginButton);
+        registerButton = findViewById(R.id.registerButton);
+        toolbar = findViewById(R.id.toolbar);
 
     }
 
@@ -83,7 +94,6 @@ public class LoginPage extends AppCompatActivity {
     }
 
     private boolean validateUsername(){
-
 
         if(inputUsername.isEmpty()){
             usernameField.setError("Field can't be empty");
@@ -106,6 +116,14 @@ public class LoginPage extends AppCompatActivity {
         }
     }
 
+    private boolean validateFields(){
+
+        if(!validateUsername() | !validatePassword()){
+            return false;
+        }else{
+            return true;
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){

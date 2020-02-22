@@ -28,6 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + TABLE_NAME;
     private static final String SQL_SELECT_TABLE = "SELECT * FROM " + TABLE_NAME;
 
+    private Accounts account;
 
 
 
@@ -58,19 +59,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertData(String username, String password, String email){
-        db = this.getWritableDatabase();
-        contentValues = new ContentValues();
-        contentValues.put(COL_2,username);
-        contentValues.put(COL_3,password);
-        contentValues.put(COL_4,email);
+    public boolean createAccount(Accounts account){
+        try{
+            db = this.getWritableDatabase();
+            contentValues = new ContentValues();
+            contentValues.put(COL_2,account.username);
+            contentValues.put(COL_3,account.password);
+            contentValues.put(COL_4,account.email);
 
-        long result = db.insert(TABLE_NAME,null,contentValues);
-        if(result == -1){
+            long result = db.insert(TABLE_NAME,null,contentValues);
+            if(result == -1){
+                return false;
+            }else{
+                db.close();
+                return true;
+            }
+        }catch(Exception e){
+            e.printStackTrace();
             return false;
-        }else{
-            return true;
         }
+
+
     }
 
     public Cursor getData(){
@@ -104,6 +113,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public Accounts validateLogin(Accounts account){
+        db = this.getWritableDatabase();
+        res = db.rawQuery(SQL_SELECT_TABLE +" where username = ? and password = ?", new String[] {account.username, account.password});
 
+        if(res != null && res.moveToFirst() && res.getCount() > 0){
+            Accounts newAccount = new Accounts(res.getString(0),res.getString(1),res.getString(2),res.getString(3));
+
+            if(account.password.equals(newAccount.password)){
+                return newAccount;
+            }
+        }
+        return null;
+    }
 }
 
