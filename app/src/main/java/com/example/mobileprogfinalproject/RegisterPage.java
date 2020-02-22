@@ -35,7 +35,7 @@ public class RegisterPage extends AppCompatActivity {
 
                 setStrings();
 
-                account = new Accounts(null,username,password,email);
+                account = new Accounts(0,username,password,email);
 
                 if(confirmField(createButton)){
                     database.createAccount(account);

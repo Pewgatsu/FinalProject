@@ -45,8 +45,6 @@ public class LoginPage extends AppCompatActivity {
 
         database = new DatabaseHelper(this);
         initializeWidgets();
-        toolbar.setTitle(" ");
-        setSupportActionBar(toolbar);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,11 +53,13 @@ public class LoginPage extends AppCompatActivity {
 
                 if(validateFields()){
 
-                    currentAccount = database.validateLogin(new Accounts(null, inputUsername, inputPassword, null));
+                    currentAccount = database.validateLogin(new Accounts(0, inputUsername, inputPassword, null));
 
                     if(currentAccount != null){
-                        intent = new Intent(getApplicationContext(),UserPage.class);
+                        intent = new Intent(getApplicationContext(),HomePage.class);
+                        intent.putExtra("ACCOUNT_ID",currentAccount.getID());
                         startActivity(intent);
+                        finish();
                     }else{
                         Toast.makeText(LoginPage.this, "FAIL", Toast.LENGTH_SHORT).show();
                     }
@@ -84,7 +84,7 @@ public class LoginPage extends AppCompatActivity {
         passwordField = findViewById(R.id.loginPasswordField);
         loginButton = findViewById(R.id.loginButton);
         registerButton = findViewById(R.id.registerButton);
-        toolbar = findViewById(R.id.toolbar);
+
 
     }
 

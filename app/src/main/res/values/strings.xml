@@ -21,6 +21,26 @@
     <string name="aboutLine1">Program Created By: James De Leon \nBSSCSE - N21</string>
     <string name="aboutLine2">BSCSSE - N21</string>
 
+    <string name="title_activity_home_page">Welcome</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Insert Name Here</string>
+    <string name="nav_header_subtitle">Insert Email Here</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_profile">Profile</string>
+
+
+    <string name="addpassword_title">Title</string>
+    <string name="accountField_hint">Account</string>
+    <string name="websiteField_hint">Website (Optional)</string>
+    <string name="notesField">Notes (Optional)</string>
+    <string name="addPasswordButton">Add</string>
+    <string name="cancelButton">Cancel</string>
+
+
 
 
 </resources>
