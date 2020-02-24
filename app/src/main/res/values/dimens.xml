@@ -4,6 +4,9 @@
     <dimen name="activity_horizontal_margin">18dp</dimen>
     <dimen name="activity_vertical_margin">18dp</dimen>
 
+    <dimen name="settingPage_horizontal_margin">16dp</dimen>
+    <dimen name="settingPage_vertical_margin">16dp</dimen>
+
     <dimen name="login_marginTop">10dp</dimen>
     <dimen name="loginTextInputLayout_width">250dp</dimen>
 
@@ -14,9 +17,13 @@
     <dimen name="fab_margin">16dp</dimen>
 
 
-    <dimen name="button_vertical_margin">20dp</dimen>
-    <dimen name="button_horizontal_margin">65dp</dimen>
+    <dimen name="button_vertical_margin">5dp</dimen>
+    <dimen name="button_horizontal_margin">50dp</dimen>
 
     <dimen name="fontSize">30sp</dimen>
+
+
+    <dimen name="settingsComponentWidth">280dp</dimen>
+    <dimen name="settingsComponentHeight">65dp</dimen>
 
 </resources>

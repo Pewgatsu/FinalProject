@@ -131,21 +131,7 @@ public class LoginPage extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch(item.getItemId()){
-            case R.id.menuAbout:{
-                intent = new Intent(getApplicationContext(),AboutPage.class);
-                startActivity(intent);
-                break;
-            }
-            case R.id.menuHelp:{
-                Toast.makeText(getApplicationContext(),"Help Menu", Toast.LENGTH_SHORT).show();
-            }
 
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
 
 

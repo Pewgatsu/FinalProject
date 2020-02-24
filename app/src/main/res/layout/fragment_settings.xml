@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/linearLayout"
+
+    android:paddingTop="@dimen/settingPage_vertical_margin"
+    android:paddingBottom="@dimen/settingPage_vertical_margin"
+    android:paddingLeft="@dimen/settingPage_horizontal_margin"
+    android:paddingRight="@dimen/settingPage_horizontal_margin"
+    >
+
+    <TextView
+        android:id="@+id/aboutText"
+        android:layout_width="@dimen/settingsComponentWidth"
+        android:layout_height="@dimen/settingsComponentHeight"
+        android:layout_marginTop="36dp"
+        android:text="@string/settingsAbout"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helpText" />
+
+    <TextView
+        android:id="@+id/helpText"
+        android:layout_width="@dimen/settingsComponentWidth"
+        android:layout_height="@dimen/settingsComponentHeight"
+        android:layout_marginTop="36dp"
+        android:text="@string/settingsHelp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accountText" />
+
+    <TextView
+        android:id="@+id/generalText"
+        android:layout_width="@dimen/settingsComponentWidth"
+        android:layout_height="@dimen/settingsComponentHeight"
+        android:layout_marginTop="32dp"
+        android:text="@string/settingsGeneral"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notificationsText" />
+
+    <TextView
+        android:id="@+id/accountText"
+        android:layout_width="@dimen/settingsComponentWidth"
+        android:layout_height="@dimen/settingsComponentHeight"
+        android:layout_marginTop="32dp"
+        android:text="@string/settingsAccount"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/generalText" />
+
+    <TextView
+        android:id="@+id/notificationsText"
+        android:layout_width="@dimen/settingsComponentWidth"
+        android:layout_height="@dimen/settingsComponentHeight"
+        android:layout_marginTop="40dp"
+        android:drawablePadding="-10sp"
+        android:text="@string/settingsNotifications"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/notificationsText"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/notifications_icon" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/generalText"
+        app:layout_constraintTop_toBottomOf="@+id/notificationsText"
+        app:srcCompat="@drawable/settings_icon" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/accountText"
+        app:layout_constraintTop_toBottomOf="@+id/generalText"
+        app:srcCompat="@drawable/profile_icon" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/helpText"
+        app:layout_constraintTop_toBottomOf="@+id/accountText"
+        app:srcCompat="@drawable/help_icon" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/aboutText"
+        app:layout_constraintTop_toBottomOf="@+id/helpText"
+        app:srcCompat="@drawable/about_icon" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

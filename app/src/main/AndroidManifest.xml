@@ -30,6 +30,8 @@
             android:name=".RegisterPage"
             android:theme="@style/LoginPageTheme" />
         <activity android:name=".AddPasswordPage"></activity>
+
+
     </application>
 
 </manifest>

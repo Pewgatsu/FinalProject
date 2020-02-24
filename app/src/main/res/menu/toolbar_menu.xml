@@ -9,16 +9,7 @@
         android:title=""
         app:showAsAction="always">
     <menu>
-    <item
-        android:id="@+id/menuAbout"
-        android:icon="@drawable/about_icon"
-        android:title="@string/about"
-        />
-    <item
-        android:id="@+id/menuHelp"
-        android:icon="@drawable/help_icon"
-        android:title="@string/help"
-        />
+
 
 
     </menu>
