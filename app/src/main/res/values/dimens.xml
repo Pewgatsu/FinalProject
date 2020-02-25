@@ -22,8 +22,27 @@
 
     <dimen name="fontSize">30sp</dimen>
 
+    <dimen name="settingsFontSize">15sp</dimen>
 
-    <dimen name="settingsComponentWidth">280dp</dimen>
+
+    <dimen name="settingsComponentWidth">343dp</dimen>
     <dimen name="settingsComponentHeight">65dp</dimen>
 
+
+
+    <dimen name="registerContainerWidth">327dp</dimen>
+    <dimen name="registerContainerHeight">471dp</dimen>
+
+
+    <dimen name="textInputContainerWidth">327dp</dimen>
+    <dimen name="textInputContainerHeight">75dp</dimen>
+
+    <dimen name="registerInputLayoutHeight">48dp</dimen>
+
+
+    <dimen name="continueButtonWidth">327dp</dimen>
+    <dimen name="continueButtonHeight">40dp</dimen>
+
+
+    <dimen name="hintSize">30sp</dimen>
 </resources>

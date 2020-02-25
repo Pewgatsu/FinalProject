@@ -35,9 +35,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String ACCOUNTS_TABLE = "Accounts_table";
     private static final String ACCOUNTS_ID = "ACCOUNT_ID";
     private static final String ACCOUNTS_USERNAME = "ACCOUNT_USERNAME";
+    private static final String ACCOUNTS_FULLNAME = "ACCOUNT_FULLNAME";
     private static final String ACCOUNTS_PASSWORD = "ACCOUNT_PASSWORD";
     private static final String ACCOUNTS_EMAIL = "ACCOUNT_EMAIL";
-    private static final String SQL_CREATE_ACCOUNTS_TABLE = "CREATE TABLE " + ACCOUNTS_TABLE + " (ACCOUNT_ID integer primary key autoincrement,ACCOUNT_USERNAME TEXT not null, ACCOUNT_PASSWORD text not null, ACCOUNT_EMAIL text not null)";
+    private static final String SQL_CREATE_ACCOUNTS_TABLE = "CREATE TABLE " + ACCOUNTS_TABLE + " (ACCOUNT_ID integer primary key autoincrement,ACCOUNT_USERNAME TEXT not null, ACCOUNT_FULLNAME TEXT NOT NULL," +
+            " ACCOUNT_PASSWORD text not null, ACCOUNT_EMAIL text not null)";
     private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS ";
     private static final String SQL_SELECT_TABLE = "SELECT * FROM ";
 
@@ -99,6 +101,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db = this.getWritableDatabase();
             contentValues = new ContentValues();
             contentValues.put(ACCOUNTS_USERNAME,account.getUsername());
+            contentValues.put(ACCOUNTS_FULLNAME,account.getFullname());
             contentValues.put(ACCOUNTS_PASSWORD,account.getPassword());
             contentValues.put(ACCOUNTS_EMAIL,account.getEmail());
 
@@ -140,7 +143,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         res = db.rawQuery(SQL_SELECT_TABLE +ACCOUNTS_TABLE+" where account_username = ? and account_password = ?", new String[] {account.getUsername(), account.getPassword()});
 
         if(res != null && res.moveToFirst() && res.getCount() > 0){
-            Accounts newAccount = new Accounts(res.getInt(0),res.getString(1),res.getString(2),res.getString(3));
+            Accounts newAccount = new Accounts(res.getInt(0),res.getString(1),res.getString(2),res.getString(3),res.getString(4));
 
             if(account.getPassword().equals(newAccount.getPassword())){
                 return newAccount;

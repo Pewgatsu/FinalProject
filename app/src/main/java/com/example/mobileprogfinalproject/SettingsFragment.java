@@ -34,8 +34,8 @@ public class SettingsFragment extends Fragment {
 
 
         initializeWidgets();
-        arialFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/arial.ttf");
-        setTypeFace();
+//        arialFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/arial.ttf");
+//        setTypeFace();
 
         if (floatingActionButton != null) {
             floatingActionButton.hide();
@@ -56,11 +56,11 @@ public class SettingsFragment extends Fragment {
 
     private void initializeWidgets(){
 
-        notifications = getView().findViewById(R.id.notificationsText);
-        general = getView().findViewById(R.id.generalText);
-        account = getView().findViewById(R.id.accountText);
-        help = getView().findViewById(R.id.helpText);
-        about = getView().findViewById(R.id.aboutText);
+//        notifications = getView().findViewById(R.id.notificationsText);
+//        general = getView().findViewById(R.id.generalText);
+//        account = getView().findViewById(R.id.accountText);
+//        help = getView().findViewById(R.id.helpText);
+//        about = getView().findViewById(R.id.aboutText);
 
         floatingActionButton = ((HomePage) getActivity()).getFloatingActionButton();
     }

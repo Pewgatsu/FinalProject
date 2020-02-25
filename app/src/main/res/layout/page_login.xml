@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_gravity="center_horizontal"
-        android:foregroundTint="@color/midBlue"
+        style="@style/loginTextInputStyle"
         app:errorEnabled="true"
         app:counterEnabled="true"
         app:counterMaxLength="15">
@@ -42,6 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/login_marginTop"
         android:layout_gravity="center_horizontal"
+        style="@style/loginTextInputStyle"
         app:passwordToggleEnabled="true"
         app:errorEnabled="true">
 
@@ -61,29 +62,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/loginButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/round_button"
-            android:textColor="@color/colorPrimary"
-            android:layout_marginStart="@dimen/button_horizontal_margin"
-            android:layout_marginTop="@dimen/button_vertical_margin"
-            android:text="@string/loginButton" />
-
-        <Button
+        <ImageButton
             android:id="@+id/registerButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="96dp"
+            android:layout_height="40dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:background="@drawable/round_coloredbutton"
-            android:textColor="@color/white"
+            app:srcCompat="@drawable/registerbutton"
             android:layout_marginTop="@dimen/button_vertical_margin"
             android:layout_marginEnd="@dimen/button_horizontal_margin"
             android:text="@string/registerButton" />
+
+        <ImageButton
+            android:id="@+id/loginButton"
+            android:layout_width="96dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="@dimen/button_horizontal_margin"
+            android:layout_marginTop="@dimen/button_vertical_margin"
+            android:backgroundTint="@color/white"
+            app:srcCompat="@drawable/loginbutton" />
     </RelativeLayout>
 
 

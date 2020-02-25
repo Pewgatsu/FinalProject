@@ -6,112 +6,185 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/linearLayout"
-
     android:paddingTop="@dimen/settingPage_vertical_margin"
     android:paddingBottom="@dimen/settingPage_vertical_margin"
     android:paddingLeft="@dimen/settingPage_horizontal_margin"
     android:paddingRight="@dimen/settingPage_horizontal_margin"
     >
 
-    <TextView
-        android:id="@+id/aboutText"
+    <RelativeLayout
+        android:id="@+id/notificationsContainer"
         android:layout_width="@dimen/settingsComponentWidth"
         android:layout_height="@dimen/settingsComponentHeight"
-        android:layout_marginTop="36dp"
-        android:text="@string/settingsAbout"
-
+        android:layout_marginTop="16dp"
+        android:background="@drawable/settings_text_background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/helpText" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/helpText"
+        <TextView
+            android:id="@+id/notificationsText"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="113dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/settingsNotifications"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/settingsFontSize" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/notificationsText"
+            app:srcCompat="@drawable/notifications_icon" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/generalContainer"
         android:layout_width="@dimen/settingsComponentWidth"
         android:layout_height="@dimen/settingsComponentHeight"
-        android:layout_marginTop="36dp"
-        android:text="@string/settingsHelp"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/accountText" />
-
-    <TextView
-        android:id="@+id/generalText"
-        android:layout_width="@dimen/settingsComponentWidth"
-        android:layout_height="@dimen/settingsComponentHeight"
-        android:layout_marginTop="32dp"
-        android:text="@string/settingsGeneral"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notificationsText" />
-
-    <TextView
-        android:id="@+id/accountText"
-        android:layout_width="@dimen/settingsComponentWidth"
-        android:layout_height="@dimen/settingsComponentHeight"
-        android:layout_marginTop="32dp"
-        android:text="@string/settingsAccount"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/generalText" />
-
-    <TextView
-        android:id="@+id/notificationsText"
-        android:layout_width="@dimen/settingsComponentWidth"
-        android:layout_height="@dimen/settingsComponentHeight"
-        android:layout_marginTop="40dp"
-        android:drawablePadding="-10sp"
-        android:text="@string/settingsNotifications"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/notificationsText"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/notifications_icon" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/generalText"
-        app:layout_constraintTop_toBottomOf="@+id/notificationsText"
-        app:srcCompat="@drawable/settings_icon" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/accountText"
-        app:layout_constraintTop_toBottomOf="@+id/generalText"
-        app:srcCompat="@drawable/profile_icon" />
+        android:background="@drawable/settings_text_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notificationsContainer">
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/helpText"
-        app:layout_constraintTop_toBottomOf="@+id/accountText"
-        app:srcCompat="@drawable/help_icon" />
+        <TextView
+            android:id="@+id/generalText"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="113dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/settingsGeneral"
+            android:textSize="@dimen/settingsFontSize"/>
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/aboutText"
-        app:layout_constraintTop_toBottomOf="@+id/helpText"
-        app:srcCompat="@drawable/about_icon" />
+        <ImageView
+            android:id="@+id/generalIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/generalText"
+            app:srcCompat="@drawable/settings_icon" />
+    </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/accountContainer"
+        android:layout_width="@dimen/settingsComponentWidth"
+        android:layout_height="@dimen/settingsComponentHeight"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/settings_text_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/generalContainer">
+
+        <TextView
+            android:id="@+id/accountText"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="113dp"
+            android:layout_marginBottom="20dp"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/settingsAccount"
+            android:textSize="@dimen/settingsFontSize"/>
+
+        <ImageView
+            android:id="@+id/accountIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/accountText"
+            app:srcCompat="@drawable/profile_icon" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/helpContainer"
+        android:layout_width="@dimen/settingsComponentWidth"
+        android:layout_height="@dimen/settingsComponentHeight"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/settings_text_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/accountContainer">
+
+        <TextView
+            android:id="@+id/helpText"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="113dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/settingsHelp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/settingsFontSize"/>
+
+        <ImageView
+            android:id="@+id/helpIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/helpText"
+            app:srcCompat="@drawable/help_icon" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/aboutContainer"
+        android:layout_width="@dimen/settingsComponentWidth"
+        android:layout_height="@dimen/settingsComponentHeight"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/settings_text_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/helpContainer">
+
+        <TextView
+            android:id="@+id/aboutText"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="113dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/settingsAbout"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/settingsFontSize"/>
+
+        <ImageView
+            android:id="@+id/aboutIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@+id/aboutText"
+            app:srcCompat="@drawable/about_icon" />
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

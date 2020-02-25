@@ -4,6 +4,7 @@ public class Accounts {
 
     private int id;
     private String username;
+    private String fullname;
     private String password;
     private String email;
 
@@ -12,6 +13,7 @@ public class Accounts {
     public Accounts(){
         id = 0;
         username = null;
+        fullname = null;
         password = null;
         email = null;
     }
@@ -25,15 +27,24 @@ public class Accounts {
         this.username = username;
     }
 
-    public Accounts(int id, String username, String password){
+    public Accounts(int id, String username, String fullname){
         this.id = id;
+        this.fullname = fullname;
+        this.username = username;
+
+    }
+
+    public Accounts(int id, String username, String fullname, String password){
+        this.id = id;
+        this.fullname = fullname;
         this.username = username;
         this.password = password;
     }
 
-    public Accounts(int id, String username, String password, String email){
+    public Accounts(int id, String username, String fullname, String password, String email){
         this.id = id;
         this.username = username;
+        this.fullname = fullname;
         this.password = password;
         this.email = email;
     }
@@ -47,6 +58,10 @@ public class Accounts {
 
     public void setUsername(String username){
         this.username = username;
+    }
+
+    public void setFullname(String fullname){
+        this.fullname = fullname;
     }
 
     public void setPassword(String password){
@@ -65,6 +80,10 @@ public class Accounts {
 
     public String getUsername(){
         return username;
+    }
+
+    public String getFullname(){
+        return fullname;
     }
 
     public String getPassword(){

@@ -6,6 +6,7 @@ import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,10 +17,10 @@ import com.google.android.material.textfield.TextInputLayout;
 public class RegisterPage extends AppCompatActivity {
 
     private Accounts account;
-    private Button backButton, createButton;
+    private ImageButton createButton;
     private DatabaseHelper database;
-    private TextInputLayout emailField, usernameField, passwordField, confirmpasswordField;
-    private String username, email, password, confirmPassword;
+    private TextInputLayout emailField, nameField, usernameField, passwordField, confirmpasswordField;
+    private String username, fullname, email, password, confirmPassword;
 
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -35,33 +36,24 @@ public class RegisterPage extends AppCompatActivity {
 
                 setStrings();
 
-                account = new Accounts(0,username,password,email);
+                account = new Accounts(0,username,fullname,password,email);
 
                 if(confirmField(createButton)){
                     database.createAccount(account);
                     Toast.makeText(RegisterPage.this, "Account Created!", Toast.LENGTH_SHORT).show();
                     clearFields();
-                }else{
-                    Snackbar.make(createButton,"Fields can't be empty!",Snackbar.LENGTH_LONG).show();
                 }
-
             }
         });
 
 
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Toast.makeText(getApplicationContext(),"Returning..", Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        });
 
     }
 
 
     private void setStrings(){
+        fullname = nameField.getEditText().getText().toString();
         email = emailField.getEditText().getText().toString();
         username = usernameField.getEditText().getText().toString().trim();
         password = passwordField.getEditText().getText().toString();
@@ -69,15 +61,17 @@ public class RegisterPage extends AppCompatActivity {
     }
 
     private void initializeWidgets(){
-        backButton = findViewById(R.id.regBackButton);
-        createButton = findViewById(R.id.createButton);
-        emailField = findViewById(R.id.emailField);
-        usernameField = findViewById(R.id.regUsernameField);
-        passwordField = findViewById(R.id.regPasswordField);
-        confirmpasswordField = findViewById(R.id.regConfirmPassword);
+
+       nameField = findViewById(R.id.regNameField);
+       createButton = findViewById(R.id.createButton);
+       emailField = findViewById(R.id.emailField);
+       usernameField = findViewById(R.id.regUsernameField);
+       passwordField = findViewById(R.id.regPasswordField);
+       confirmpasswordField = findViewById(R.id.regConfirmPassword);
     }
 
     private void clearFields(){
+        nameField.getEditText().setText("");
         emailField.getEditText().setText("");
         usernameField.getEditText().setText("");
         passwordField.getEditText().setText("");

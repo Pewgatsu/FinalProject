@@ -1,20 +1,11 @@
 package com.example.mobileprogfinalproject;
 
-import android.accounts.Account;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.util.DisplayMetrics;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.PopupWindow;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 
@@ -30,7 +21,7 @@ public class LoginPage extends AppCompatActivity {
     private DatabaseHelper database;
 
     private Toolbar toolbar;
-    private Button loginButton, registerButton;
+    private ImageButton  registerButton,loginButton;
     private Intent intent;
     private TextInputLayout usernameField,passwordField;
     private String inputUsername, inputPassword;
@@ -41,7 +32,7 @@ public class LoginPage extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_page);
+        setContentView(R.layout.page_login);
 
         database = new DatabaseHelper(this);
         initializeWidgets();
@@ -53,7 +44,7 @@ public class LoginPage extends AppCompatActivity {
 
                 if(validateFields()){
 
-                    currentAccount = database.validateLogin(new Accounts(0, inputUsername, inputPassword, null));
+                    currentAccount = database.validateLogin(new Accounts(0, inputUsername,null, inputPassword, null));
 
                     if(currentAccount != null){
                         intent = new Intent(getApplicationContext(),HomePage.class);
@@ -84,8 +75,6 @@ public class LoginPage extends AppCompatActivity {
         passwordField = findViewById(R.id.loginPasswordField);
         loginButton = findViewById(R.id.loginButton);
         registerButton = findViewById(R.id.registerButton);
-
-
     }
 
     private void setStrings(){
