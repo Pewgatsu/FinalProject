@@ -21,7 +21,7 @@ public class LoginPage extends AppCompatActivity {
     private DatabaseHelper database;
 
     private Toolbar toolbar;
-    private ImageButton  registerButton,loginButton;
+    private Button  registerButton,loginButton;
     private Intent intent;
     private TextInputLayout usernameField,passwordField;
     private String inputUsername, inputPassword;

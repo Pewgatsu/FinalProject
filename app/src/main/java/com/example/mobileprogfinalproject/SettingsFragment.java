@@ -1,5 +1,6 @@
 package com.example.mobileprogfinalproject;
 
+import android.app.ActionBar;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,6 +23,8 @@ public class SettingsFragment extends Fragment {
    private FloatingActionButton floatingActionButton;
 
 
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
@@ -40,6 +43,7 @@ public class SettingsFragment extends Fragment {
         if (floatingActionButton != null) {
             floatingActionButton.hide();
         }
+
 
 
     }
@@ -61,8 +65,8 @@ public class SettingsFragment extends Fragment {
 //        account = getView().findViewById(R.id.accountText);
 //        help = getView().findViewById(R.id.helpText);
 //        about = getView().findViewById(R.id.aboutText);
-
         floatingActionButton = ((HomePage) getActivity()).getFloatingActionButton();
+
     }
 
 

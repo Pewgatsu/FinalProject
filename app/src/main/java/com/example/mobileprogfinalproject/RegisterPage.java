@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -22,12 +23,23 @@ public class RegisterPage extends AppCompatActivity {
     private TextInputLayout emailField, nameField, usernameField, passwordField, confirmpasswordField;
     private String username, fullname, email, password, confirmPassword;
 
+
     public void onCreate(Bundle savedInstanceState){
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_register);
 
         database = new DatabaseHelper(this);
         initializeWidgets();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
+
+
+
 
 
         createButton.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +57,8 @@ public class RegisterPage extends AppCompatActivity {
                 }
             }
         });
+
+
 
 
 
@@ -148,5 +162,11 @@ public class RegisterPage extends AppCompatActivity {
         }else{
             return true;
         }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return  true;
     }
 }
