@@ -5,10 +5,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.List;
 
 public class HomeFragment extends Fragment {
+
+    RecyclerView recyclerView;
+    Adapter adapter;
+    List<Passwords> passwordsList;
+    DatabaseHelper database;
 
     @Nullable
     @Override
@@ -18,4 +28,20 @@ public class HomeFragment extends Fragment {
 
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+    private void initializeWidgets(){
+
+//        database = new DatabaseHelper(getContext());
+//
+//
+//        recyclerView = getView().findViewById(R.id.listOfPasswords);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+//        adapter = new Adapter(this,
+
+    }
 }

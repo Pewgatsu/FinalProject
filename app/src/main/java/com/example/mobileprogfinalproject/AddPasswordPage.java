@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +25,8 @@ import java.security.SecureRandom;
 
 public class AddPasswordPage extends AppCompatActivity {
 
+    private LinearLayout linearLayout;
+    private TextView newTextView;
     private TextInputLayout titleField, accountField, usernameField, passwordField, websiteField, notesField;
     private Button addButton, cancelButton;
     private String inputTitle, inputAccount, inputUsername, inputPassword, inputWebsite, inputNotes;
@@ -84,6 +88,10 @@ public class AddPasswordPage extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void addTextView(){
+
     }
 
 

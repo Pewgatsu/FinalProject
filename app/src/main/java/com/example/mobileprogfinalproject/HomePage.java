@@ -60,11 +60,9 @@ public class HomePage extends AppCompatActivity implements AppBarConfiguration.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page_drawer);
 
+
         initializeWidgets();
-
         setSupportActionBar(toolbar);
-
-
 
 
         drawerToggle = setupDrawerToggle();
@@ -188,9 +186,11 @@ public class HomePage extends AppCompatActivity implements AppBarConfiguration.O
         }
     }
 
+
     private ActionBarDrawerToggle setupDrawerToggle() {
         return new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open,  R.string.navigation_drawer_close);
     }
+
 
     private void initializeWidgets(){
         addPassword = findViewById(R.id.fab);
