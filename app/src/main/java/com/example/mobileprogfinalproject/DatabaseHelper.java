@@ -10,6 +10,8 @@ import androidx.annotation.Nullable;
 import androidx.core.content.res.ComplexColorCompat;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -17,8 +19,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private ContentValues contentValues;
     private Cursor res;
     private SQLiteDatabase db;
+    private Passwords passwords;
 
     private static final String PASSWORDS_TABLE = "Password_table";
+    private static final String PASSWORDS_ID = "PASSWORD_ID";
     private static final String PASSWORDS_TITLE = "Title";
     private static final String PASSWORDS_ACCOUNT = "ACCOUNT";
     private static final String PASSWORDS_USERNAME = "USERNAME";
@@ -26,7 +30,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String PASSWORDS_WEBSITE = "WEBSITE";
     private static final String PASSWORDS_NOTES = "NOTES";
     private static final String ACCOUNTS_ACCOUNT_ID = "ACCOUNT_ID";
-    private static final String SQL_CREATE_PASSWORD_TABLE = "CREATE TABLE " + PASSWORDS_TABLE + " (PASSWORD_ID integer primary key autoincrement, TITLE TEXT, USERNAME TEXT not null," +
+    private static final String SQL_CREATE_PASSWORD_TABLE = "CREATE TABLE " + PASSWORDS_TABLE + " (PASSWORD_ID integer primary key autoincrement, TITLE TEXT, ACCOUNT TEXT not null, USERNAME TEXT not null," +
             " PASSWORD TEXT not null, WEBSITE TEXT not null, NOTES not null, ACCOUNT_ID integer, FOREIGN KEY (ACCOUNT_ID) REFERENCES ACCOUNTS_TABLE (ACCOUNT_ID))";
 
 
@@ -73,11 +77,53 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    public Passwords getPasswords(int id){
+        db =this.getWritableDatabase();
+        String[] query = {PASSWORDS_ID, PASSWORDS_TITLE, PASSWORDS_ACCOUNT, PASSWORDS_USERNAME, PASSWORDS_PASSWORD, PASSWORDS_WEBSITE, PASSWORDS_NOTES};
+        res = db.query(PASSWORDS_TABLE, query, PASSWORDS_ID+"=?",new String[]{String.valueOf(id)},null, null,null,null);
+        if(res != null){
+            res.moveToFirst();
+        }
+
+        return new Passwords(
+                Integer.parseInt(res.getString(0)),
+                res.getString(1),
+                res.getString(2),
+                res.getString(3),
+                res.getString(4),
+                res.getString(5),
+                res.getString(6));
+    }
+
+
+    public List<Passwords> getAllPasswords(){
+        List<Passwords> passwordsList = new ArrayList<>();
+        db = this.getWritableDatabase();
+        res = db.rawQuery(SQL_SELECT_TABLE + PASSWORDS_TABLE +" ORDER BY "+PASSWORDS_ID,null);
+        if(res.moveToFirst()){
+            do{
+                passwords = new Passwords();
+                passwords.setID(res.getInt(0));
+                passwords.setTitle(res.getString(1));
+                passwords.setAccount(res.getString(2));
+                passwords.setUsername(res.getString(3));
+                passwords.setPassword(res.getString(4));
+                passwords.setWebsite(res.getString(5));
+                passwords.setNotes(res.getString(6));
+                passwordsList.add(passwords);
+            }while(res.moveToNext());
+        }
+        return passwordsList;
+    }
+
+
+
     public boolean createPasswordAccount(Accounts account, Passwords accountPassword){
         try{
             db = this.getWritableDatabase();
             contentValues = new ContentValues();
             contentValues.put(PASSWORDS_TITLE,accountPassword.getTitle());
+            contentValues.put(PASSWORDS_ACCOUNT,accountPassword.getAccount());
             contentValues.put(PASSWORDS_USERNAME,accountPassword.getUsername());
             contentValues.put(PASSWORDS_PASSWORD,accountPassword.getPassword());
             contentValues.put(PASSWORDS_WEBSITE,accountPassword.getWebsite());

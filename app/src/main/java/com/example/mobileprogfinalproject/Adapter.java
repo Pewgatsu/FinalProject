@@ -1,6 +1,7 @@
 package com.example.mobileprogfinalproject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
 
     private LayoutInflater inflater;
     private List<Passwords> passwordsList;
+    private Intent intent;
 
 
     public Adapter(Context context, List<Passwords> passwordsList){
@@ -27,18 +29,16 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
     @Override
     public Adapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = inflater.inflate(R.layout.custom_list_layout, parent,false);
-
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Adapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String title = passwordsList.get(position).getTitle();
         String account = passwordsList.get(position).getAccount();
 
         holder.detailsTitle.setText(title);
         holder.detailsAccount.setText(account);
-
     }
 
     @Override
@@ -49,11 +49,20 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView detailsTitle, detailsAccount;
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull final View itemView) {
+
             super(itemView);
             detailsTitle = itemView.findViewById(R.id.detailsTitle);
             detailsAccount = itemView.findViewById(R.id.detailsAccount);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    intent = new Intent(v.getContext(),DetailsPage.class);
+                    intent.putExtra("ID",passwordsList.get(getAdapterPosition()).getID());
+                    v.getContext().startActivity(intent);
+                }
+            });
         }
     }
 }

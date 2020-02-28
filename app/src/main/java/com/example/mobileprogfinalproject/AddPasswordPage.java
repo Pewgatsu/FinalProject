@@ -90,9 +90,7 @@ public class AddPasswordPage extends AppCompatActivity {
         });
     }
 
-    private void addTextView(){
 
-    }
 
 
     private void getAccountID(){

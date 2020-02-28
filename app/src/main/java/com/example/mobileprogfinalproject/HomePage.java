@@ -31,10 +31,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.Menu;
 import android.widget.Toast;
+
+import java.util.List;
 
 public class HomePage extends AppCompatActivity implements AppBarConfiguration.OnNavigateUpListener {
 
@@ -50,6 +54,9 @@ public class HomePage extends AppCompatActivity implements AppBarConfiguration.O
     private Bundle extras;
     private AlertDialog.Builder confirmLogoutBuilder;
     private AlertDialog confirmLogout;
+    RecyclerView recyclerView;
+    Adapter adapter;
+    List<Passwords> passwordsList;
 
 
 
@@ -65,6 +72,8 @@ public class HomePage extends AppCompatActivity implements AppBarConfiguration.O
         setSupportActionBar(toolbar);
 
 
+
+
         drawerToggle = setupDrawerToggle();
         drawerToggle.setDrawerIndicatorEnabled(true);
         drawerToggle.syncState();
@@ -72,8 +81,7 @@ public class HomePage extends AppCompatActivity implements AppBarConfiguration.O
         drawer.addDrawerListener(drawerToggle);
 
 
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_settings, R.id.nav_logout)
                 .setDrawerLayout(drawer)
@@ -141,6 +149,9 @@ public class HomePage extends AppCompatActivity implements AppBarConfiguration.O
         getMenuInflater().inflate(R.menu.home_page, menu);
         return true;
     }
+
+
+
 
     @Override
     public boolean onSupportNavigateUp() {
