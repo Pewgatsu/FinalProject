@@ -53,7 +53,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
             super(itemView);
             detailsTitle = itemView.findViewById(R.id.detailsTitle);
             detailsAccount = itemView.findViewById(R.id.detailsAccount);
-
         }
     }
 }

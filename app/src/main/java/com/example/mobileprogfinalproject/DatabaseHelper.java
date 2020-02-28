@@ -10,6 +10,8 @@ import androidx.annotation.Nullable;
 import androidx.core.content.res.ComplexColorCompat;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -17,6 +19,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private ContentValues contentValues;
     private Cursor res;
     private SQLiteDatabase db;
+    private List<Passwords> passwordsList;
 
     private static final String PASSWORDS_TABLE = "Password_table";
     private static final String PASSWORDS_TITLE = "Title";
@@ -71,6 +74,38 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETE_ENTRIES + ACCOUNTS_TABLE);
         db.execSQL(SQL_DELETE_ENTRIES + PASSWORDS_TABLE);
         onCreate(db);
+    }
+
+    public List<Passwords> getPasswordAccounts(){
+        passwordsList = new ArrayList<>();
+        try{
+            db = this.getWritableDatabase();
+            res = db.rawQuery(SQL_SELECT_TABLE + PASSWORDS_TABLE, null);
+
+            if(res.moveToFirst()){
+                do{
+                    Passwords passwords = new Passwords();
+                    passwords.setID(res.getInt(0));
+                    passwords.setTitle(res.getString(1));
+                    passwords.setAccount(res.getString(2));
+                    passwords.setUsername(res.getString(3));
+                    passwords.setPassword(res.getString(4));
+                    passwords.setWebsite(res.getString(5));
+                    passwords.setNotes(res.getString(6));
+
+
+                    passwordsList.add(passwords);
+                }while(res.moveToNext());
+            }
+        }catch(Exception e){
+            try{
+                throw new IOException(e);
+            }catch(IOException e1){
+                e1.printStackTrace();
+            }
+        }
+
+        return passwordsList;
     }
 
     public boolean createPasswordAccount(Accounts account, Passwords accountPassword){

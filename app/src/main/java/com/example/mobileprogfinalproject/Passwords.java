@@ -12,6 +12,7 @@ public class Passwords {
 
     public Passwords(){
         this.title = null;
+        this.account = null;
         this.username = null;
         this.password = null;
         this.website = null;
