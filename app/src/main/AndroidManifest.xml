@@ -34,6 +34,9 @@
         <activity android:name=".DetailsPage"
                   android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity android:name=".EditPage"
+                  >
+        </activity>
 
 
     </application>

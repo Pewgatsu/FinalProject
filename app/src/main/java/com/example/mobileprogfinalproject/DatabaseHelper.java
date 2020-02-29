@@ -86,7 +86,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         return new Passwords(
-                Integer.parseInt(res.getString(0)),
+                res.getInt(0),
                 res.getString(1),
                 res.getString(2),
                 res.getString(3),
@@ -113,6 +113,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.delete(PASSWORDS_TABLE,PASSWORDS_ID+"=?",new String[]{String.valueOf(id)});
             db.close();
     }
+
 
 
     public List<Passwords> getAllPasswords(){

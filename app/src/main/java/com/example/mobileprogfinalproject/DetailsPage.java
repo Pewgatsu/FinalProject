@@ -95,7 +95,10 @@ public class DetailsPage extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.edit){
-
+            intent = new Intent(this, EditPage.class);
+            intent.putExtra("ID",id);
+            startActivity(intent);
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }
