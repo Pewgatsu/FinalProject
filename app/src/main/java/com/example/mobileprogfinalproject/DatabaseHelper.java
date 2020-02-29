@@ -95,6 +95,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 res.getString(6));
     }
 
+    public int editPasswords(Passwords passwords){
+            db = this.getWritableDatabase();
+            contentValues = new ContentValues();
+            contentValues.put(PASSWORDS_TITLE,passwords.getTitle());
+            contentValues.put(PASSWORDS_ACCOUNT,passwords.getAccount());
+            contentValues.put(PASSWORDS_USERNAME,passwords.getUsername());
+            contentValues.put(PASSWORDS_PASSWORD,passwords.getPassword());
+            contentValues.put(PASSWORDS_WEBSITE,passwords.getWebsite());
+            contentValues.put(PASSWORDS_NOTES,passwords.getNotes());
+
+            return db.update(PASSWORDS_TABLE,contentValues,PASSWORDS_ID+"=?",new String[]{String.valueOf(passwords.getID())});
+    }
+
+    public void deletePassword(int id){
+            db = this.getWritableDatabase();
+            db.delete(PASSWORDS_TABLE,PASSWORDS_ID+"=?",new String[]{String.valueOf(id)});
+            db.close();
+    }
+
 
     public List<Passwords> getAllPasswords(){
         List<Passwords> passwordsList = new ArrayList<>();

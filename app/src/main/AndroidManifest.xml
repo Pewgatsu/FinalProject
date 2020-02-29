@@ -31,8 +31,8 @@
             android:name=".HomePage"
             android:label="@string/title_activity_home_page"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".DetailsPage">
-
+        <activity android:name=".DetailsPage"
+                  android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
 
