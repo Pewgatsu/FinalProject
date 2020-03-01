@@ -5,19 +5,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#FAFAFA"
-    android:padding="5dp">
+    android:background="@color/white"
+    android:padding="@dimen/customList_cardPadding">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="0dp"
-        app:cardElevation="0dp"
-        app:contentPadding="5dp"
+        app:cardCornerRadius="@dimen/customList_cardCornerRadius"
+        app:cardElevation="@dimen/customList_cardCornerRadius"
+        app:contentPadding="@dimen/customList_cardPadding"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginBottom="5dp">
+        android:backgroundTint="@color/midBlue"
+        android:layout_marginBottom="@dimen/customList_cardPadding">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -25,17 +26,16 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout"
-                android:layout_width="83dp"
-                android:layout_height="61dp"
+                android:layout_width="@dimen/customList_constraintLayoutWidth"
+                android:layout_height="@dimen/customList_constraintLayoutHeight"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-
                 <ImageView
                     android:id="@+id/imageView"
-                    android:layout_width="63dp"
-                    android:layout_height="48dp"
+                    android:layout_width="@dimen/customListImageWidth"
+                    android:layout_height="@dimen/customListImageHeight"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +44,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="0dp"
+                android:layout_width="@dimen/customListConstraintWidth"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/constraintLayout"
@@ -52,16 +52,16 @@
 
                 <TextView
                     android:id="@+id/detailsTitle"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/customList_cardCornerRadius"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    android:text="Sample Note TItle"
+                    android:layout_marginStart="@dimen/customListTextViewMarginStart"
+                    android:layout_marginTop="@dimen/customListTextViewMarginTop"
+                    android:layout_marginEnd="@dimen/customListTextViewMarginStart"
+                    android:text="Sample Note Title"
                     android:textAlignment="viewStart"
                     android:textAllCaps="false"
                     android:textColor="@android:color/background_dark"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/customListTextSize"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -70,26 +70,14 @@
                     android:id="@+id/detailsAccount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:text="Account"
+                    android:layout_marginStart="@dimen/customListTextViewMarginStart"
+                    android:layout_marginTop="@dimen/customListTextViewMarginTop"
+                    android:text="Sample account name"
                     android:textStyle="italic"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/detailsTitle" />
 
-                <TextView
-                    android:id="@+id/detailsTime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:text="08:02"
-                    android:textStyle="italic"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.684"
-                    app:layout_constraintStart_toEndOf="@+id/detailsAccount"
-                    app:layout_constraintTop_toBottomOf="@+id/detailsTitle" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,25 +6,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingLeft="14dp"
-    android:paddingTop="14dp"
-    android:paddingRight="14dp"
-    android:paddingBottom="14dp">
+    android:paddingLeft="@dimen/registerPadding"
+    android:paddingTop="@dimen/registerPadding"
+    android:paddingRight="@dimen/registerPadding"
+    android:paddingBottom="@dimen/registerPadding">
 
 
     <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="@dimen/registerLayoutMarginTop"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="380dp"
-            android:layout_height="38dp"
+            android:layout_width="@dimen/registerTitleWidth"
+            android:layout_height="@dimen/registerTitleHeight"
             android:text="Create an Account"
-            android:textSize="20sp" />
+            android:textSize="@dimen/registerTitleTextSize" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/regUsernameField"
@@ -110,7 +110,7 @@
             android:id="@+id/regConfirmPassword"
             android:layout_width="@dimen/textInputContainerWidth"
             android:layout_height="@dimen/textInputContainerHeight"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="@dimen/customListTextViewMarginTop"
             app:errorEnabled="true"
             app:passwordToggleEnabled="true"
             style="@style/registerTextInputStyle">
@@ -129,7 +129,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="91dp">
+            android:layout_height="@dimen/registerRelativeLayoutHeight">
 
             <ImageButton
                 android:id="@+id/createButton"
@@ -137,8 +137,8 @@
                 android:layout_height="@dimen/continueButtonHeight"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="19dp"
+                android:layout_marginTop="@dimen/registerImageButtonMarginTop"
+                android:layout_marginBottom="@dimen/registerImageButtonMarginBottom"
                 app:srcCompat="@drawable/next_icon" />
         </RelativeLayout>
 

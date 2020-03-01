@@ -65,18 +65,18 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <RelativeLayout
-        android:layout_width="297dp"
+        android:layout_width="@dimen/PasswordLayoutWidth"
         android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editPasswordField"
-            android:layout_width="280dp"
+            android:layout_width="@dimen/PasswordLayoutWidth"
             android:layout_height="@dimen/addPasswordTextInputLayout_height"
             android:layout_marginTop="@dimen/login_marginTop"
             app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="240dp"
+                android:layout_width="@dimen/PasswordEditTextWidth"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:drawableEnd="@drawable/ic_refresh_icon"

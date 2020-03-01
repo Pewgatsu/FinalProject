@@ -24,14 +24,14 @@
 
         <TextView
             android:id="@+id/notificationsText"
-            android:layout_width="150dp"
+            android:layout_width="@dimen/settingsTextViewWidth"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="113dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="@dimen/settingsVerticalMargin"
+            android:layout_marginEnd="@dimen/settingsMarginEnd"
+            android:layout_marginBottom="@dimen/settingsVerticalMargin"
             android:text="@string/settingsNotifications"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/settingsFontSize" />
@@ -41,8 +41,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginTop="@dimen/settingsVerticalMargin"
+            android:layout_marginEnd="@dimen/settingsImageEndMargin"
             android:layout_toStartOf="@+id/notificationsText"
             app:srcCompat="@drawable/notifications_icon" />
     </RelativeLayout>
@@ -51,7 +51,7 @@
         android:id="@+id/generalContainer"
         android:layout_width="@dimen/settingsComponentWidth"
         android:layout_height="@dimen/settingsComponentHeight"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="@dimen/settingsContainerMarginTop"
         android:background="@drawable/settings_text_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,14 +59,14 @@
 
         <TextView
             android:id="@+id/generalText"
-            android:layout_width="150dp"
+            android:layout_width="@dimen/settingsTextViewWidth"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="113dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="@dimen/settingsVerticalMargin"
+            android:layout_marginEnd="@dimen/settingsMarginEnd"
+            android:layout_marginBottom="@dimen/settingsVerticalMargin"
             android:textColor="@color/colorPrimary"
             android:text="@string/settingsGeneral"
             android:textSize="@dimen/settingsFontSize"/>
@@ -76,8 +76,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginTop="@dimen/settingsVerticalMargin"
+            android:layout_marginEnd="@dimen/settingsImageEndMargin"
             android:layout_toStartOf="@+id/generalText"
             app:srcCompat="@drawable/settings_icon" />
     </RelativeLayout>
@@ -86,7 +86,7 @@
         android:id="@+id/accountContainer"
         android:layout_width="@dimen/settingsComponentWidth"
         android:layout_height="@dimen/settingsComponentHeight"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="@dimen/settingsContainerMarginTop"
         android:background="@drawable/settings_text_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,14 +94,14 @@
 
         <TextView
             android:id="@+id/accountText"
-            android:layout_width="150dp"
+            android:layout_width="@dimen/settingsTextViewWidth"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="113dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="@dimen/settingsVerticalMargin"
+            android:layout_marginEnd="@dimen/settingsMarginEnd"
+            android:layout_marginBottom="@dimen/settingsVerticalMargin"
             android:textColor="@color/colorPrimary"
             android:text="@string/settingsAccount"
             android:textSize="@dimen/settingsFontSize"/>
@@ -111,8 +111,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginTop="@dimen/settingsVerticalMargin"
+            android:layout_marginEnd="@dimen/settingsImageEndMargin"
             android:layout_toStartOf="@+id/accountText"
             app:srcCompat="@drawable/profile_icon" />
     </RelativeLayout>
@@ -121,7 +121,7 @@
         android:id="@+id/helpContainer"
         android:layout_width="@dimen/settingsComponentWidth"
         android:layout_height="@dimen/settingsComponentHeight"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="@dimen/settingsContainerMarginTop"
         android:background="@drawable/settings_text_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -129,14 +129,14 @@
 
         <TextView
             android:id="@+id/helpText"
-            android:layout_width="150dp"
+            android:layout_width="@dimen/settingsTextViewWidth"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="113dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="@dimen/settingsVerticalMargin"
+            android:layout_marginEnd="@dimen/settingsMarginEnd"
+            android:layout_marginBottom="@dimen/settingsVerticalMargin"
             android:text="@string/settingsHelp"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/settingsFontSize"/>
@@ -146,8 +146,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginTop="@dimen/settingsVerticalMargin"
+            android:layout_marginEnd="@dimen/settingsImageEndMargin"
             android:layout_toStartOf="@+id/helpText"
             app:srcCompat="@drawable/help_icon" />
     </RelativeLayout>
@@ -156,7 +156,7 @@
         android:id="@+id/aboutContainer"
         android:layout_width="@dimen/settingsComponentWidth"
         android:layout_height="@dimen/settingsComponentHeight"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="@dimen/settingsContainerMarginTop"
         android:background="@drawable/settings_text_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -164,14 +164,14 @@
 
         <TextView
             android:id="@+id/aboutText"
-            android:layout_width="150dp"
+            android:layout_width="@dimen/settingsTextViewWidth"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="113dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="@dimen/settingsVerticalMargin"
+            android:layout_marginEnd="@dimen/settingsMarginEnd"
+            android:layout_marginBottom="@dimen/settingsVerticalMargin"
             android:text="@string/settingsAbout"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/settingsFontSize"/>
@@ -181,8 +181,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginTop="@dimen/settingsVerticalMargin"
+            android:layout_marginEnd="@dimen/settingsImageEndMargin"
             android:layout_toStartOf="@+id/aboutText"
             app:srcCompat="@drawable/about_icon" />
     </RelativeLayout>

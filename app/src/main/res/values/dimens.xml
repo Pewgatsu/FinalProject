@@ -32,6 +32,14 @@
 
     <dimen name="registerContainerWidth">327dp</dimen>
     <dimen name="registerContainerHeight">471dp</dimen>
+    <dimen name="registerPadding">14dp</dimen>
+    <dimen name="registerLayoutMarginTop">11dp</dimen>
+    <dimen name="registerTitleWidth">380dp</dimen>
+    <dimen name="registerTitleHeight">38dp</dimen>
+    <dimen name="registerRelativeLayoutHeight">91dp</dimen>
+    <dimen name="registerImageButtonMarginTop">32dp</dimen>
+    <dimen name="registerImageButtonMarginBottom">19dp</dimen>
+    <dimen name="registerTitleTextSize">20sp</dimen>
 
 
     <dimen name="textInputContainerWidth">327dp</dimen>
@@ -43,6 +51,34 @@
     <dimen name="continueButtonWidth">327dp</dimen>
     <dimen name="continueButtonHeight">40dp</dimen>
 
-
     <dimen name="hintSize">30sp</dimen>
+
+    <dimen name="settingsTextViewWidth">150dp</dimen>
+    <dimen name="settingsContainerMarginTop">28dp</dimen>
+    <dimen name="settingsVerticalMargin">20dp</dimen>
+    <dimen name="settingsMarginEnd">113dp</dimen>
+    <dimen name="settingsImageEndMargin">10dp</dimen>
+
+    <dimen name="pageAddPasswordGenerateButtonMarginTop">27</dimen>
+    <dimen name="pageAddPasswordGenerateButtonMarginEnd">35</dimen>
+    <dimen name="pageAddPasswordRelativeLayoutWidth">300dp</dimen>
+
+    <dimen name="page_detailsTopMargin">70dp</dimen>
+    <dimen name="PasswordLayoutWidth">280dp</dimen>
+    <dimen name="PasswordEditTextWidth">240dp</dimen>
+
+
+    <dimen name="customList_cardCornerRadius">0dp</dimen>
+    <dimen name="customList_cardPadding">5dp</dimen>
+
+    <dimen name="customList_constraintLayoutWidth">83dp</dimen>
+    <dimen name="customList_constraintLayoutHeight">61dp</dimen>
+
+    <dimen name="customListImageWidth">65dp</dimen>
+    <dimen name="customListImageHeight">50dp</dimen>
+    <dimen name="customListConstraintWidth">0dp</dimen>
+    <dimen name="customListTextViewMarginStart">16dp</dimen>
+    <dimen name="customListTextViewMarginTop">8dp</dimen>
+    <dimen name="customListTextSize">20sp</dimen>
+
 </resources>

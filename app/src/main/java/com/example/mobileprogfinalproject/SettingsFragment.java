@@ -45,7 +45,7 @@ public class SettingsFragment extends Fragment {
         initializeWidgets();
 //        arialFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/arial.ttf");
 //        setTypeFace();
-        Toast.makeText(getActivity(), ""+accountID, Toast.LENGTH_SHORT).show();
+
         accountContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
