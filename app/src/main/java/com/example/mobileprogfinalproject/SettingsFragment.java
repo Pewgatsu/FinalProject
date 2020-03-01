@@ -1,12 +1,15 @@
 package com.example.mobileprogfinalproject;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +24,9 @@ public class SettingsFragment extends Fragment {
    private TextView notifications, general, account, help, about;
    private Typeface arialFont;
    private FloatingActionButton floatingActionButton;
+   private RelativeLayout accountContainer;
+   private Intent intent;
+   private int accountID;
 
 
 
@@ -39,7 +45,15 @@ public class SettingsFragment extends Fragment {
         initializeWidgets();
 //        arialFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/arial.ttf");
 //        setTypeFace();
-
+        Toast.makeText(getActivity(), ""+accountID, Toast.LENGTH_SHORT).show();
+        accountContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getActivity(),AccountPage.class);
+                intent.putExtra("ACCOUNT_ID",accountID);
+                startActivity(intent);
+            }
+        });
         if (floatingActionButton != null) {
             floatingActionButton.hide();
         }
@@ -65,7 +79,9 @@ public class SettingsFragment extends Fragment {
 //        account = getView().findViewById(R.id.accountText);
 //        help = getView().findViewById(R.id.helpText);
 //        about = getView().findViewById(R.id.aboutText);
+        accountID = ((HomePage) getActivity()).retrieveAccountID();
         floatingActionButton = ((HomePage) getActivity()).getFloatingActionButton();
+        accountContainer = getActivity().findViewById(R.id.accountContainer);
 
     }
 

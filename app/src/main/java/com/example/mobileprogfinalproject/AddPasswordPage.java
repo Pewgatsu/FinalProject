@@ -69,11 +69,12 @@ public class AddPasswordPage extends AppCompatActivity {
                 if(validateFields()){
                     accounts = new Accounts(accountID,null,null,null);
 
-                    accountPasswords = new Passwords(0,inputTitle,inputAccount,inputUsername,inputPassword,inputWebsite,inputNotes);
+                    accountPasswords = new Passwords(0,inputTitle,inputAccount,inputUsername,inputPassword,inputWebsite,inputNotes,0);
 
                     if(database.createPasswordAccount(accounts,accountPasswords)){
                         clearFields();
                         Toast.makeText(AddPasswordPage.this, "SUCCESS", Toast.LENGTH_SHORT).show();
+                        finish();
                     }else{
                         Toast.makeText(AddPasswordPage.this, "FAIL", Toast.LENGTH_SHORT).show();
                     }

@@ -39,6 +39,19 @@ public class EditPage extends AppCompatActivity {
 
     }
 
+    private boolean validateTitle(){
+        String inputTitle = editTitle.getEditText().getText().toString();
+
+        if(inputTitle.isEmpty()){
+            editTitle.setError(getString(R.string.fieldError));
+            return false;
+        }else{
+            editTitle.setError(null);
+            editTitle.setErrorEnabled(false);
+            return true;
+        }
+    }
+
 
     private void getStrings(){
         newTitle = editTitle.getEditText().getText().toString();
@@ -50,9 +63,8 @@ public class EditPage extends AppCompatActivity {
     }
 
     private void setNewDetails(){
-
-        accountPassword.setTitle(this.newTitle);
-        accountPassword.setAccount(this.newAccount);
+        accountPassword.setTitle(newTitle);
+        accountPassword.setAccount(newAccount);
         accountPassword.setUsername(newUsername);
         accountPassword.setPassword(newPassword);
         accountPassword.setWebsite(newWebsite);
@@ -98,10 +110,15 @@ public class EditPage extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
 
         if (item.getItemId() == R.id.save) {
-            getStrings();
-            setNewDetails();
+            if(validateTitle()){
+                getStrings();
+                setNewDetails();
+                database.editPasswords(accountPassword);
+                Toast.makeText(this, "SUCCESS", Toast.LENGTH_SHORT).show();
+            }
 
-            Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
+        }else if(item.getItemId() == R.id.delete){
+            onBackPressed();
         }
 
 

@@ -54,9 +54,7 @@ public class HomePage extends AppCompatActivity implements AppBarConfiguration.O
     private Bundle extras;
     private AlertDialog.Builder confirmLogoutBuilder;
     private AlertDialog confirmLogout;
-    RecyclerView recyclerView;
-    Adapter adapter;
-    List<Passwords> passwordsList;
+
 
 
 
@@ -188,6 +186,11 @@ public class HomePage extends AppCompatActivity implements AppBarConfiguration.O
 
     public FloatingActionButton getFloatingActionButton() {
         return addPassword;
+    }
+
+    public int retrieveAccountID(){
+        getAccountID();
+        return accountID;
     }
 
     private void getAccountID(){

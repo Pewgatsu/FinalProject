@@ -79,7 +79,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Passwords getPasswords(int id){
         db =this.getWritableDatabase();
-        String[] query = {PASSWORDS_ID, PASSWORDS_TITLE, PASSWORDS_ACCOUNT, PASSWORDS_USERNAME, PASSWORDS_PASSWORD, PASSWORDS_WEBSITE, PASSWORDS_NOTES};
+        String[] query = {PASSWORDS_ID, ACCOUNTS_ID, PASSWORDS_TITLE, PASSWORDS_ACCOUNT, PASSWORDS_USERNAME, PASSWORDS_PASSWORD, PASSWORDS_WEBSITE, PASSWORDS_NOTES};
         res = db.query(PASSWORDS_TABLE, query, PASSWORDS_ID+"=?",new String[]{String.valueOf(id)},null, null,null,null);
         if(res != null){
             res.moveToFirst();
@@ -92,7 +92,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 res.getString(3),
                 res.getString(4),
                 res.getString(5),
-                res.getString(6));
+                res.getString(6),
+                res.getInt(7));
     }
 
     public int editPasswords(Passwords passwords){
@@ -108,6 +109,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return db.update(PASSWORDS_TABLE,contentValues,PASSWORDS_ID+"=?",new String[]{String.valueOf(passwords.getID())});
     }
 
+    public void deleteAccount(int id){
+             db = this.getWritableDatabase();
+             db.delete(ACCOUNTS_TABLE, ACCOUNTS_ID+"= ?", new String[]{String.valueOf(id)});
+             db.close();
+    }
+
     public void deletePassword(int id){
             db = this.getWritableDatabase();
             db.delete(PASSWORDS_TABLE,PASSWORDS_ID+"=?",new String[]{String.valueOf(id)});
@@ -116,10 +123,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
-    public List<Passwords> getAllPasswords(){
+    public List<Passwords> getAllPasswords(int id){
         List<Passwords> passwordsList = new ArrayList<>();
         db = this.getWritableDatabase();
-        res = db.rawQuery(SQL_SELECT_TABLE + PASSWORDS_TABLE +" ORDER BY "+PASSWORDS_ID,null);
+        res = db.rawQuery(SQL_SELECT_TABLE +PASSWORDS_TABLE+" where account_id = ? ", new String[]{String.valueOf(id)});
+        //res = db.rawQuery(SQL_SELECT_TABLE + PASSWORDS_TABLE +"where"+ " ORDER BY "+PASSWORDS_ID,null);
         if(res.moveToFirst()){
             do{
                 passwords = new Passwords();
@@ -130,6 +138,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 passwords.setPassword(res.getString(4));
                 passwords.setWebsite(res.getString(5));
                 passwords.setNotes(res.getString(6));
+                passwords.setAccount_ID(res.getInt(7));
+
                 passwordsList.add(passwords);
             }while(res.moveToNext());
         }
@@ -148,7 +158,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             contentValues.put(PASSWORDS_PASSWORD,accountPassword.getPassword());
             contentValues.put(PASSWORDS_WEBSITE,accountPassword.getWebsite());
             contentValues.put(PASSWORDS_NOTES,accountPassword.getNotes());
-            this.contentValues.put(ACCOUNTS_ACCOUNT_ID,account.getID());
+            contentValues.put(ACCOUNTS_ACCOUNT_ID,account.getID());
             long result = db.insert(PASSWORDS_TABLE,null,contentValues);
             if(result == -1){
                 return false;

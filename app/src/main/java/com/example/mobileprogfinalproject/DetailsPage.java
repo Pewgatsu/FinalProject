@@ -5,13 +5,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.EditText;
-import android.widget.ImageView;
+import android.view.View;
+
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import com.google.android.material.textfield.TextInputLayout;
 
 public class DetailsPage extends AppCompatActivity {
@@ -21,8 +23,8 @@ public class DetailsPage extends AppCompatActivity {
     private Passwords passwords;
     private Intent intent;
     private int id;
-    private EditText titleField, accountField, usernameField, websiteField, notesField;
-    private TextInputLayout passwordField;
+    private TextInputLayout titleField, accountField, usernameField, passwordField, websiteField, notesField;
+    private FloatingActionButton fab;
 
 
     public void onCreate(Bundle saveInstanceState) {
@@ -32,17 +34,24 @@ public class DetailsPage extends AppCompatActivity {
         initializeWidgets();
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
-
         getAccountID();
 
         database = new DatabaseHelper(this);
         passwords = database.getPasswords(id);
-
         getSupportActionBar().setTitle(passwords.getTitle());
         setStrings();
         disableFields();
+
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    database.deletePassword(id);
+                    Toast.makeText(DetailsPage.this, "Note Deleted", Toast.LENGTH_SHORT).show();
+                    goToMain();
+
+            }
+        });
     }
 
 
@@ -54,28 +63,29 @@ public class DetailsPage extends AppCompatActivity {
 
 
     private void disableFields(){
-        titleField.setKeyListener(null);
-        accountField.setKeyListener(null);
-        usernameField.setKeyListener(null);
+        titleField.getEditText().setKeyListener(null);
+        accountField.getEditText().setKeyListener(null);
+        usernameField.getEditText().setKeyListener(null);
         passwordField.getEditText().setKeyListener(null);
-        websiteField.setKeyListener(null);
-        notesField.setKeyListener(null);
+        websiteField.getEditText().setKeyListener(null);
+        notesField.getEditText().setKeyListener(null);
+
     }
 
     private void setStrings(){
-        titleField.setText(passwords.getTitle());
-        accountField.setText(passwords.getAccount());
-        usernameField.setText(passwords.getUsername());
+        titleField.getEditText().setText(passwords.getTitle());
+        accountField.getEditText().setText(passwords.getAccount());
+        usernameField.getEditText().setText(passwords.getUsername());
         passwordField.getEditText().setText(passwords.getPassword());
-        websiteField.setText(passwords.getWebsite());
-        notesField.setText(passwords.getNotes());
+        websiteField.getEditText().setText(passwords.getWebsite());
+        notesField.getEditText().setText(passwords.getNotes());
     }
 
     private void initializeWidgets(){
 
 
         toolbar = findViewById(R.id.detailsToolbar);
-
+        fab = findViewById(R.id.detailsFab);
 
         titleField = findViewById(R.id.detailsTitleField);
         accountField = findViewById(R.id.detailsAccountField);
@@ -112,5 +122,11 @@ public class DetailsPage extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+    }
+
+    private void goToMain(){
+        intent = new Intent(getApplicationContext(),HomePage.class);
+        startActivity(intent);
+        finish();
     }
 }

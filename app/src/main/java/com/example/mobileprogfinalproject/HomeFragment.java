@@ -21,14 +21,14 @@ import java.util.List;
 
 public class HomeFragment extends Fragment {
 
-    Toolbar toolbar;
-    FloatingActionButton floatingActionButton;
-    RecyclerView recyclerView;
-    Adapter adapter;
-    List<Passwords> passwordsList;
-    DatabaseHelper database;
-    TextView displayText;
 
+    private FloatingActionButton floatingActionButton;
+    private RecyclerView recyclerView;
+    private Adapter adapter;
+    private List<Passwords> passwordsList;
+    private DatabaseHelper database;
+    private TextView displayText;
+    private int accountID;
 
     @Nullable
     @Override
@@ -40,30 +40,41 @@ public class HomeFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-    floatingActionButton = ((HomePage)getActivity()).getFloatingActionButton();
-    displayText = getActivity().findViewById(R.id.noItemText);
+
+
+    initializeWidgets();
+
+
     database = new DatabaseHelper(getActivity());
-    passwordsList = database.getAllPasswords();
-    recyclerView = getActivity().findViewById(R.id.passwordList);
+    passwordsList = database.getAllPasswords(accountID);
+
+
 
     floatingActionButton.show();
 
 
         if(passwordsList.isEmpty()){
             displayText.setVisibility(View.VISIBLE);
-            Toast.makeText(getActivity(), "WAHAHA", Toast.LENGTH_SHORT).show();
         }else{
             displayText.setVisibility(View.GONE);
-            Toast.makeText(getActivity(), "XD", Toast.LENGTH_SHORT).show();
             displayList(passwordsList);
 
         }
 
 
     }
+
+    private void initializeWidgets(){
+        accountID = ((HomePage)getActivity()).retrieveAccountID();
+        displayText = getActivity().findViewById(R.id.noItemText);
+        recyclerView = getActivity().findViewById(R.id.passwordList);
+        floatingActionButton = ((HomePage)getActivity()).getFloatingActionButton();
+    }
+
     private void displayList(List<Passwords> passwordsList){
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         adapter = new Adapter(getActivity(),passwordsList);
+        recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setAdapter(adapter);
     }
 
@@ -71,7 +82,7 @@ public class HomeFragment extends Fragment {
     public void onResume(){
         super.onResume();
 
-       List<Passwords> passwordsList = database.getAllPasswords();
+       List<Passwords> passwordsList = database.getAllPasswords(accountID);
        if(passwordsList.isEmpty()){
            displayText.setVisibility(View.VISIBLE);
        }else{
@@ -80,8 +91,5 @@ public class HomeFragment extends Fragment {
         }
 
     }
-
-
-
 
 }

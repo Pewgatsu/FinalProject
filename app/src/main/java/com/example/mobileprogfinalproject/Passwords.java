@@ -3,6 +3,7 @@ package com.example.mobileprogfinalproject;
 public class Passwords {
 
     private int id;
+    private int account_id;
     private String title;
     private String account;
     private String username;
@@ -10,36 +11,41 @@ public class Passwords {
     private String website;
     private String notes;
 
+
     public Passwords(){
-        this.title = null;
-        this.username = null;
-        this.password = null;
-        this.website = null;
-        this.notes = null;
+        id = 0;
+        title = null;
+        username = null;
+        password = null;
+        website = null;
+        notes = null;
+        account_id = 0;
     }
 
     public Passwords(int id){
         this.id = id;
     }
 
+
     public Passwords(int id, String account){
         this.id = id;
         this.account = account;
     }
 
-    public Passwords(int id, String account, String title){
+    public Passwords(int id, String title, String account){
         this.id = id;
+
         this.title = title;
         this.account = account;
     }
 
-    public Passwords(int id, String account, String title, String username){
+    public Passwords(int id, String title, String account, String username){
         this.id = id;
         this.title = title;
         this.username = username;
     }
 
-    public Passwords(int id, String account, String title, String username, String password){
+    public Passwords(int id, String title, String account, String username, String password){
         this.id = id;
         this.title = title;
         this.account = account;
@@ -47,7 +53,7 @@ public class Passwords {
         this.password = password;
     }
 
-    public Passwords(int id, String account, String title, String username, String password, String website){
+    public Passwords(int id, String title, String account, String username, String password, String website){
         this.id = id;
         this.title = title;
         this.account = account;
@@ -56,7 +62,7 @@ public class Passwords {
         this.website = website;
     }
 
-    public Passwords(int id, String account, String title, String username, String password, String website, String notes){
+    public Passwords(int id, String title, String account, String username, String password, String website, String notes){
         this.id = id;
         this.title = title;
         this.account = account;
@@ -66,9 +72,24 @@ public class Passwords {
         this.notes = notes;
     }
 
+    public Passwords(int id, String title, String account, String username, String password, String website, String notes, int account_id){
+        this.id = id;
+        this.title = title;
+        this.account = account;
+        this.username = username;
+        this.password = password;
+        this.website = website;
+        this.notes = notes;
+        this.account_id = account_id;
+    }
+
     //mutators
     public void setID(int id){
         this.id = id;
+    }
+
+    public void setAccount_ID(int account_id){
+        this.account_id = account_id;
     }
 
     public void setTitle(String title){
@@ -98,6 +119,10 @@ public class Passwords {
     //accessors
     public int getID(){
         return id;
+    }
+
+    public int getAccount_ID(){
+        return account_id;
     }
 
     public String getAccount(){

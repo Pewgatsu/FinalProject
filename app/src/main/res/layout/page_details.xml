@@ -12,32 +12,57 @@
     android:paddingLeft="@dimen/activity_horizontal_margin">
 
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/detailsTitleField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        android:layout_marginTop="80dp"/>
+        android:layout_marginTop="70dp"
+        app:errorEnabled="true">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/titleField_hint"
+            android:inputType="text">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/detailsAccountField"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        android:layout_marginTop="20dp"/>
+        android:layout_height="@dimen/addPasswordTextInputLayout_height"
+        android:layout_marginTop="@dimen/login_marginTop"
+        app:errorEnabled="true">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/accountField_hint"
+            android:ems="10"
+            android:inputType="text">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/detailsUsernameField"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        android:layout_marginTop="20dp"/>
+        android:layout_height="@dimen/addPasswordTextInputLayout_height"
+        android:layout_marginTop="@dimen/login_marginTop"
+        app:errorEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/username_hint"
+            android:ems="10"
+            android:inputType="text">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <RelativeLayout
         android:layout_width="297dp"
@@ -46,36 +71,61 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/detailsPasswordField"
             android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            app:passwordToggleEnabled="true">
+            android:layout_height="@dimen/addPasswordTextInputLayout_height"
+            android:layout_marginTop="@dimen/login_marginTop"
+            app:passwordToggleEnabled="true"
+            app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="240dp"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:ems="10"
 
+                android:hint="@string/password_hint"
+                android:inputType="textPassword">
 
             </com.google.android.material.textfield.TextInputEditText>
-
-
         </com.google.android.material.textfield.TextInputLayout>
+
+
+
     </RelativeLayout>
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/detailsWebsiteField"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        android:layout_marginTop="20dp"/>
+        android:layout_height="@dimen/addPasswordTextInputLayout_height"
+        android:layout_marginTop="@dimen/login_marginTop"
+        >
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/websiteField_hint"
+            android:ems="10"
+            android:inputType="textWebEmailAddress">
+
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/detailsNotesField"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        android:layout_marginTop="20dp"/>
+        android:layout_height="@dimen/addPasswordTextInputLayout_height"
+        android:layout_marginTop="@dimen/login_marginTop"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/notesField"
+            android:ems="10"
+            android:inputType="textMultiLine">
+
+        </com.google.android.material.textfield.TextInputEditText>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 </LinearLayout>
