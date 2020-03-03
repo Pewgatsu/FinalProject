@@ -21,12 +21,13 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class SettingsFragment extends Fragment {
 
-   private TextView notifications, general, account, help, about;
+
    private Typeface arialFont;
    private FloatingActionButton floatingActionButton;
-   private RelativeLayout accountContainer;
+   private RelativeLayout accountContainer, aboutContainer, helpContainer;
    private Intent intent;
    private int accountID;
+
 
 
 
@@ -57,32 +58,46 @@ public class SettingsFragment extends Fragment {
         if (floatingActionButton != null) {
             floatingActionButton.hide();
         }
+        aboutContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAboutDialog();
+            }
+        });
 
-
+        helpContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openHelpDialog();
+            }
+        });
 
     }
 
 
     private void setTypeFace(){
-        notifications.setTypeface(arialFont);
-        general.setTypeface(arialFont);
-        account.setTypeface(arialFont);
-        help.setTypeface(arialFont);
-        about.setTypeface(arialFont);
+
 
     }
 
     private void initializeWidgets(){
 
-//        notifications = getView().findViewById(R.id.notificationsText);
-//        general = getView().findViewById(R.id.generalText);
-//        account = getView().findViewById(R.id.accountText);
-//        help = getView().findViewById(R.id.helpText);
-//        about = getView().findViewById(R.id.aboutText);
+        helpContainer = getView().findViewById(R.id.helpContainer);
+        aboutContainer = getView().findViewById(R.id.aboutContainer);
         accountID = ((HomePage) getActivity()).retrieveAccountID();
         floatingActionButton = ((HomePage) getActivity()).getFloatingActionButton();
         accountContainer = getActivity().findViewById(R.id.accountContainer);
 
+    }
+
+    private void openAboutDialog(){
+        AboutDialog aboutDialog = new AboutDialog();
+        aboutDialog.show(getParentFragmentManager(),"Example Dialog");
+    }
+
+    private void openHelpDialog(){
+        HelpDialog helpDialog = new HelpDialog();
+        helpDialog.show(getParentFragmentManager(),"Example Dialog");
     }
 
 

@@ -1,16 +1,18 @@
 package com.example.mobileprogfinalproject;
 
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.EditText;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.material.textfield.TextInputLayout;
+
+
 
 public class EditPage extends AppCompatActivity {
 
@@ -19,7 +21,10 @@ public class EditPage extends AppCompatActivity {
     private Intent intent;
     private TextInputLayout editTitle, editAccount, editUsername, editPassword, editWebsite, editNote;
     private String newTitle, newAccount, newUsername, newPassword, newWebsite, newNotes;
+    private ImageView generateButton;
     private int id;
+    private String generatedPassword;
+    private PasswordGenerator generator;
 
     public void onCreate(Bundle savedInstanceState) {
 
@@ -31,11 +36,19 @@ public class EditPage extends AppCompatActivity {
 
         getAccountID();
 
+        generator = new PasswordGenerator();
         database = new DatabaseHelper(this);
         accountPassword = database.getPasswords(id);
 
-
         setStrings();
+
+        generateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                generatedPassword = generator.generatePassword();
+                editPassword.getEditText().setText(generatedPassword);
+            }
+        });
 
     }
 
@@ -88,6 +101,8 @@ public class EditPage extends AppCompatActivity {
     }
 
     private void initializeWidgets(){
+        generateButton = findViewById(R.id.editPageGenerateButton);
+
         editTitle = findViewById(R.id.editTitleField);
         editAccount = findViewById(R.id.editAccountField);
         editUsername = findViewById(R.id.editUsernameField);
@@ -115,6 +130,7 @@ public class EditPage extends AppCompatActivity {
                 setNewDetails();
                 database.editPasswords(accountPassword);
                 Toast.makeText(this, "SUCCESS", Toast.LENGTH_SHORT).show();
+                finish();
             }
 
         }else if(item.getItemId() == R.id.delete){
@@ -130,4 +146,6 @@ public class EditPage extends AppCompatActivity {
         finish();
         return  true;
     }
+
+
 }

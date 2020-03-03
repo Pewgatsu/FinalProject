@@ -77,13 +77,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+
+
+    public Cursor getProfileDetails(){
+        db = this.getWritableDatabase();
+        res = db.rawQuery("select ACCOUNT_FULLNAME, ACCOUNT_USERNAME, ACCOUNT_EMAIL FROM "+ACCOUNTS_TABLE,null);
+        db.close();
+        return res;
+
+    }
+
+
     public Passwords getPasswords(int id){
         db =this.getWritableDatabase();
-        String[] query = {PASSWORDS_ID, ACCOUNTS_ID, PASSWORDS_TITLE, PASSWORDS_ACCOUNT, PASSWORDS_USERNAME, PASSWORDS_PASSWORD, PASSWORDS_WEBSITE, PASSWORDS_NOTES};
+        String[] query = {PASSWORDS_ID,  PASSWORDS_TITLE, PASSWORDS_ACCOUNT, PASSWORDS_USERNAME, PASSWORDS_PASSWORD, PASSWORDS_WEBSITE, PASSWORDS_NOTES, ACCOUNTS_ID};
         res = db.query(PASSWORDS_TABLE, query, PASSWORDS_ID+"=?",new String[]{String.valueOf(id)},null, null,null,null);
         if(res != null){
             res.moveToFirst();
         }
+        db.close();
 
         return new Passwords(
                 res.getInt(0),
@@ -107,6 +119,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             contentValues.put(PASSWORDS_NOTES,passwords.getNotes());
 
             return db.update(PASSWORDS_TABLE,contentValues,PASSWORDS_ID+"=?",new String[]{String.valueOf(passwords.getID())});
+
     }
 
     public void deleteAccount(int id){
@@ -143,6 +156,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 passwordsList.add(passwords);
             }while(res.moveToNext());
         }
+        db.close();
         return passwordsList;
     }
 

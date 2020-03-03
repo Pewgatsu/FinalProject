@@ -162,19 +162,19 @@ public class HomePage extends AppCompatActivity implements AppBarConfiguration.O
     private void logout(){
         confirmLogoutBuilder = new AlertDialog.Builder(this);
         confirmLogoutBuilder.setMessage("Are you sure you want to logout?");
-        confirmLogoutBuilder.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+        confirmLogoutBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        confirmLogoutBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 intent = new Intent(getApplicationContext(),LoginPage.class);
                 startActivity(intent);
                 finish();
-            }
-        });
-
-        confirmLogoutBuilder.setPositiveButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                //do nothing
             }
         });
 

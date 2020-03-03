@@ -65,8 +65,18 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <RelativeLayout
-        android:layout_width="@dimen/PasswordLayoutWidth"
-        android:layout_height="wrap_content">
+        android:layout_width="256dp"
+        android:layout_height="63dp">
+
+        <ImageView
+            android:id="@+id/editPageGenerateButton"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_refresh_icon" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editPasswordField"
@@ -79,13 +89,12 @@
                 android:layout_width="@dimen/PasswordEditTextWidth"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:drawableEnd="@drawable/ic_refresh_icon"
                 android:hint="@string/password_hint"
                 android:inputType="textVisiblePassword">
 
             </com.google.android.material.textfield.TextInputEditText>
-        </com.google.android.material.textfield.TextInputLayout>
 
+        </com.google.android.material.textfield.TextInputLayout>
 
 
     </RelativeLayout>

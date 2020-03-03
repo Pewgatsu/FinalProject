@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="@color/midBlue"
+        android:backgroundTint="@color/white"
         android:layout_marginBottom="@dimen/customList_cardPadding">
 
         <androidx.constraintlayout.widget.ConstraintLayout

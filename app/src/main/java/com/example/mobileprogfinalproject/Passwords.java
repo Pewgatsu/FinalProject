@@ -34,7 +34,6 @@ public class Passwords {
 
     public Passwords(int id, String title, String account){
         this.id = id;
-
         this.title = title;
         this.account = account;
     }
@@ -42,6 +41,7 @@ public class Passwords {
     public Passwords(int id, String title, String account, String username){
         this.id = id;
         this.title = title;
+        this.account = account;
         this.username = username;
     }
 

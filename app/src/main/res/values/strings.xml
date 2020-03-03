@@ -17,6 +17,11 @@
 
     <string name="register_title">Create your Account</string>
 
+    <string name="profileUsernameLabel">Username:</string>
+    <string name="profileFullnameLabel">Full Name:</string>
+    <string name="profileEmailLabel">Email:</string>
+    <string name="profileDeleteAccount">Delete Account</string>
+
 
 
 

@@ -1,47 +1,31 @@
 package com.example.mobileprogfinalproject;
 
 import android.content.Intent;
-import android.os.Build;
-import android.os.Bundle;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-
-
 import com.google.android.material.textfield.TextInputLayout;
 
-
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 
 
 public class AddPasswordPage extends AppCompatActivity {
 
-    private LinearLayout linearLayout;
-    private TextView newTextView;
+
     private TextInputLayout titleField, accountField, usernameField, passwordField, websiteField, notesField;
     private Button addButton, cancelButton;
     private String inputTitle, inputAccount, inputUsername, inputPassword, inputWebsite, inputNotes;
     private DatabaseHelper database;
     private Accounts accounts;
     private Passwords accountPasswords;
-    private Intent intent;
     private int accountID;
     private Bundle extras;
     private ImageView generateButton;
-    private SecureRandom random;
-    private final int PASSWORD_LENGTH = 15;
-    private String[] symbols = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "!", "@", "#", "$", "%"};
     private String generatedPassword;
-    private final String ALGORITHM = "SHA1PRNG";
+    private PasswordGenerator generator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,12 +33,13 @@ public class AddPasswordPage extends AppCompatActivity {
         setContentView(R.layout.page_addpassword);
 
         database = new DatabaseHelper(this);
+        generator = new PasswordGenerator();
         initializeWidgets();
 
         generateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                generatedPassword = generatePassword();
+                generatedPassword = generator.generatePassword();
                 passwordField.getEditText().setText(generatedPassword);
             }
         });
@@ -115,13 +100,14 @@ public class AddPasswordPage extends AppCompatActivity {
     }
 
     private void initializeWidgets(){
+
+
         titleField = findViewById(R.id.inputTitleField);
         accountField = findViewById(R.id.inputAccountField);
         usernameField = findViewById(R.id.inputUsernameField);
         passwordField = findViewById(R.id.inputPasswordField);
         websiteField = findViewById(R.id.inputWebsiteField);
         notesField = findViewById(R.id.inputNotesField);
-
         addButton = findViewById(R.id.addPasswordButton);
         cancelButton = findViewById(R.id.cancelButton);
 
@@ -182,29 +168,6 @@ public class AddPasswordPage extends AppCompatActivity {
         }
     }
 
-    private String generatePassword(){
-
-
-        try {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                random = SecureRandom.getInstanceStrong();
-            }else{
-                random = SecureRandom.getInstance(ALGORITHM);
-            }
-        }catch(NoSuchAlgorithmException e) {
-            e.getMessage();
-        }catch(Exception e){
-            e.getMessage();
-        }
-
-        StringBuilder stringBuilder = new StringBuilder(PASSWORD_LENGTH);
-
-        for (int i = 0; i < PASSWORD_LENGTH; i++) {
-            int indexRandom = random.nextInt(symbols.length);
-            stringBuilder.append(symbols[indexRandom]);
-        }
-        return stringBuilder.toString();
-    }
 
 
 }

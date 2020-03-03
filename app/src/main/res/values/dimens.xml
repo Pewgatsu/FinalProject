@@ -59,8 +59,8 @@
     <dimen name="settingsMarginEnd">113dp</dimen>
     <dimen name="settingsImageEndMargin">10dp</dimen>
 
-    <dimen name="pageAddPasswordGenerateButtonMarginTop">27</dimen>
-    <dimen name="pageAddPasswordGenerateButtonMarginEnd">35</dimen>
+    <dimen name="pageAddPasswordGenerateButtonMarginTop">27dp</dimen>
+    <dimen name="pageAddPasswordGenerateButtonMarginEnd">35dp</dimen>
     <dimen name="pageAddPasswordRelativeLayoutWidth">300dp</dimen>
 
     <dimen name="page_detailsTopMargin">70dp</dimen>
