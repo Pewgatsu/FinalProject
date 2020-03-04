@@ -31,6 +31,8 @@ public class AccountPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_account);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         deleteAccount = findViewById(R.id.deleteAccountButton);
 
 
@@ -72,12 +74,18 @@ public class AccountPage extends AppCompatActivity {
     private void getDetails(){
         res = database.getProfileDetails();
 
-        StringBuffer buffer = new StringBuffer();
+
         while(res.moveToNext()){
             fullname.setText(res.getString(0));
             username.setText(res.getString(1));
             email.setText(res.getString(2));
         }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return  true;
     }
 
     private void delete(){

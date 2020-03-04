@@ -54,6 +54,7 @@ public class RegisterPage extends AppCompatActivity {
                     database.createAccount(account);
                     Toast.makeText(RegisterPage.this, "Account Created!", Toast.LENGTH_SHORT).show();
                     clearFields();
+                    finish();
                 }
             }
         });

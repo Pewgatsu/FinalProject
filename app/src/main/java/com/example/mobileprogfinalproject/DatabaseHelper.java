@@ -82,7 +82,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getProfileDetails(){
         db = this.getWritableDatabase();
         res = db.rawQuery("select ACCOUNT_FULLNAME, ACCOUNT_USERNAME, ACCOUNT_EMAIL FROM "+ACCOUNTS_TABLE,null);
-        db.close();
         return res;
 
     }
@@ -95,7 +94,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if(res != null){
             res.moveToFirst();
         }
-        db.close();
+
 
         return new Passwords(
                 res.getInt(0),

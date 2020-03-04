@@ -15,6 +15,7 @@
 
 
 
+
     <style name="SplashScreenTheme" parent="Theme.AppCompat.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -56,12 +57,21 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="homeAsUpIndicator">@drawable/back_button</item>
     </style>
+
+
+
+
+
+
 
     <style name="registerTextInputStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <item name="boxStrokeColor">@color/midBlue</item>
         <item name="boxStrokeWidth">2dp</item>
     </style>
+
+
 
 
 

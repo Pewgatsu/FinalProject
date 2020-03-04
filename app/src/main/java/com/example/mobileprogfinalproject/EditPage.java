@@ -32,6 +32,7 @@ public class EditPage extends AppCompatActivity {
         setContentView(R.layout.page_edit);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
         initializeWidgets();
 
         getAccountID();

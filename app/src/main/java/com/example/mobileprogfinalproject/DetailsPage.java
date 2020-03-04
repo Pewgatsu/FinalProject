@@ -1,5 +1,7 @@
 package com.example.mobileprogfinalproject;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,12 +9,12 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -25,6 +27,9 @@ public class DetailsPage extends AppCompatActivity {
     private int id;
     private TextInputLayout titleField, accountField, usernameField, passwordField, websiteField, notesField;
     private FloatingActionButton fab;
+    private AlertDialog.Builder confirmDeleteBuilder;
+    private AlertDialog confirmDelete;
+
 
 
     public void onCreate(Bundle saveInstanceState) {
@@ -46,9 +51,7 @@ public class DetailsPage extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    database.deletePassword(id);
-                    Toast.makeText(DetailsPage.this, "Note Deleted", Toast.LENGTH_SHORT).show();
-                    goToMain();
+                delete();
 
             }
         });
@@ -129,4 +132,32 @@ public class DetailsPage extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+    private void delete(){
+        confirmDeleteBuilder = new AlertDialog.Builder(this);
+        confirmDeleteBuilder.setMessage("Are you sure you want to delete this note?");
+
+
+        confirmDeleteBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        confirmDeleteBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                database.deletePassword(id);
+
+                goToMain();
+            }
+        });
+
+        confirmDelete = confirmDeleteBuilder.create();
+        confirmDelete.show();
+
+
+    }
 }
+
