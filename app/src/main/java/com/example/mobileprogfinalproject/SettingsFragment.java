@@ -4,10 +4,13 @@ import android.app.ActionBar;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,8 +28,10 @@ public class SettingsFragment extends Fragment {
    private Typeface arialFont;
    private FloatingActionButton floatingActionButton;
    private RelativeLayout accountContainer, aboutContainer, helpContainer;
+   private Switch notifSwitch;
    private Intent intent;
    private int accountID;
+   private DatabaseHelper database;
 
 
 
@@ -46,6 +51,18 @@ public class SettingsFragment extends Fragment {
         initializeWidgets();
 //        arialFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/arial.ttf");
 //        setTypeFace();
+        database = new DatabaseHelper(getActivity());
+
+        notifSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(notifSwitch.isChecked()){
+                    database.setSettings(true);
+                }else{
+                    database.setSettings(false);
+                }
+            }
+        });
 
         accountContainer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,13 +92,12 @@ public class SettingsFragment extends Fragment {
     }
 
 
-    private void setTypeFace(){
 
-
-    }
 
     private void initializeWidgets(){
 
+
+        notifSwitch = getView().findViewById(R.id.notificationSwitch);
         helpContainer = getView().findViewById(R.id.helpContainer);
         aboutContainer = getView().findViewById(R.id.aboutContainer);
         accountID = ((HomePage) getActivity()).retrieveAccountID();

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.core.content.res.ComplexColorCompat;
@@ -49,6 +50,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
+    private static final String SETTINGS_TABLE = "Settings_table";
+    private static final String SQL_CREATE_SETTINGS_TABLE = "CREATE TABLE " + SETTINGS_TABLE + " (SETTINGS_ID integer primary key ,NOTIF_SETTINGS integer not null)";
+
+
+
 
 
 
@@ -61,6 +67,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         try{
             db.execSQL(SQL_CREATE_ACCOUNTS_TABLE);
             db.execSQL(SQL_CREATE_PASSWORD_TABLE);
+            db.execSQL(SQL_CREATE_SETTINGS_TABLE);
         }catch(Exception e){
             try{
                 throw new IOException(e);
@@ -74,16 +81,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(SQL_DELETE_ENTRIES + ACCOUNTS_TABLE);
         db.execSQL(SQL_DELETE_ENTRIES + PASSWORDS_TABLE);
+        db.execSQL(SQL_DELETE_ENTRIES + SETTINGS_TABLE);
         onCreate(db);
     }
 
+
+    public Cursor getSettings(){
+        db = this.getWritableDatabase();
+        res = db.rawQuery("select NOTIF_SETTINGS FROM SETTINGS_TABLE",null);
+        return res;
+    }
+
+    public void setSettings(boolean state){
+        db = this.getWritableDatabase();
+
+        if(state){
+            contentValues = new ContentValues();
+            contentValues.put("NOTIF_SETTINGS",1);
+
+        }else{
+            contentValues = new ContentValues();
+            contentValues.put("NOTIF_SETTINGS",0);
+        }
+        db.insert("SETTINGS_TABLE",null,contentValues);
+    }
 
 
     public Cursor getProfileDetails(){
         db = this.getWritableDatabase();
         res = db.rawQuery("select ACCOUNT_FULLNAME, ACCOUNT_USERNAME, ACCOUNT_EMAIL FROM "+ACCOUNTS_TABLE,null);
         return res;
-
     }
 
 
@@ -118,7 +145,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             contentValues.put(PASSWORDS_NOTES,passwords.getNotes());
 
             return db.update(PASSWORDS_TABLE,contentValues,PASSWORDS_ID+"=?",new String[]{String.valueOf(passwords.getID())});
-
     }
 
     public void deleteAccount(int id){

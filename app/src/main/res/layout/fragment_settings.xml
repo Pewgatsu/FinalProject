@@ -22,8 +22,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/notificationsText"
+        <Switch
+            android:id="@+id/notificationSwitch"
             android:layout_width="@dimen/settingsTextViewWidth"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -32,6 +32,7 @@
             android:layout_marginTop="@dimen/settingsVerticalMargin"
             android:layout_marginEnd="@dimen/settingsMarginEnd"
             android:layout_marginBottom="@dimen/settingsVerticalMargin"
+            android:checked="false"
             android:text="@string/settingsNotifications"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/settingsFontSize" />
@@ -43,7 +44,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="@dimen/settingsVerticalMargin"
             android:layout_marginEnd="@dimen/settingsImageEndMargin"
-            android:layout_toStartOf="@+id/notificationsText"
+            android:layout_toStartOf="@+id/notificationSwitch"
             app:srcCompat="@drawable/notifications_icon" />
     </RelativeLayout>
 

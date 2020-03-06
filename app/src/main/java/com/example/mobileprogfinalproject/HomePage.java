@@ -115,6 +115,7 @@ public class HomePage extends AppCompatActivity implements AppBarConfiguration.O
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (drawerToggle.onOptionsItemSelected(item)) {
+
             return true;
         }
         return super.onOptionsItemSelected(item);
