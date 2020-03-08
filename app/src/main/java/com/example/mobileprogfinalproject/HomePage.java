@@ -115,8 +115,11 @@ public class HomePage extends AppCompatActivity implements AppBarConfiguration.O
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (drawerToggle.onOptionsItemSelected(item)) {
-
             return true;
+        }
+
+        if(item.getItemId() == R.id.action_settings){
+            logout();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -146,8 +149,12 @@ public class HomePage extends AppCompatActivity implements AppBarConfiguration.O
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.home_page, menu);
+
         return true;
     }
+
+
+
 
 
 

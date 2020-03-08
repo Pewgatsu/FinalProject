@@ -51,7 +51,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     private static final String SETTINGS_TABLE = "Settings_table";
-    private static final String SQL_CREATE_SETTINGS_TABLE = "CREATE TABLE " + SETTINGS_TABLE + " (SETTINGS_ID integer primary key ,NOTIF_SETTINGS integer not null)";
+    private static final String SQL_CREATE_SETTINGS_TABLE = "CREATE TABLE " + SETTINGS_TABLE + " (SETTINGS_ID primary key not null, NOTIF_SETTINGS integer not null)";
 
 
 
@@ -86,10 +86,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public Cursor getSettings(){
+    public int getSettings(){
         db = this.getWritableDatabase();
         res = db.rawQuery("select NOTIF_SETTINGS FROM SETTINGS_TABLE",null);
-        return res;
+
+        return res.getInt(1);
     }
 
     public void setSettings(boolean state){
@@ -103,7 +104,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             contentValues = new ContentValues();
             contentValues.put("NOTIF_SETTINGS",0);
         }
-        db.insert("SETTINGS_TABLE",null,contentValues);
+
+         res = db.rawQuery("SELECT SETTINGS_ID from SETTINGS_TABLE",null);
+
+        if(res != null && res.getCount() > 0){
+
+            db.update(SETTINGS_TABLE, contentValues, "where SETTINGS_ID = ?", new String[]{String.valueOf(1)});
+        }else{
+            db.insert(SETTINGS_TABLE,null,contentValues);
+            db.update(SETTINGS_TABLE, contentValues, "where SETTINGS_ID = ?", new String[]{String.valueOf(1)});
+        }
+
     }
 
 
@@ -266,6 +277,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return null;
     }
+
+
 
 
 }

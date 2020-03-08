@@ -52,7 +52,7 @@ public class LoginPage extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     }else{
-                        Toast.makeText(LoginPage.this, "FAIL", Toast.LENGTH_SHORT).show();
+
                     }
                 }
 
@@ -68,7 +68,6 @@ public class LoginPage extends AppCompatActivity {
         });
 
     }
-
 
     private void initializeWidgets(){
         usernameField = findViewById(R.id.loginUsernameField);
@@ -113,6 +112,8 @@ public class LoginPage extends AppCompatActivity {
             return true;
         }
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
