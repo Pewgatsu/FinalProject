@@ -59,7 +59,10 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="homeAsUpIndicator">@drawable/back_button</item>
+        <item name="alertDialogStyle">@style/Theme.Design.Light</item>
     </style>
+
+
 
     <style name="registerTextInputStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <item name="boxStrokeColor">@color/midBlue</item>

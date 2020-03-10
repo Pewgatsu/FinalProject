@@ -1,7 +1,10 @@
 package com.example.mobileprogfinalproject;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +29,9 @@ public class AddPasswordPage extends AppCompatActivity {
     private ImageView generateButton;
     private String generatedPassword;
     private PasswordGenerator generator;
+    private Intent intent;
+    private Button nButton, pButton;
+    private AlertDialog confirmAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +53,33 @@ public class AddPasswordPage extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                    add();
 
+            }
+        });
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cancel();
+            }
+        });
+    }
+
+
+    private void add(){
+        AlertDialog.Builder confirmAddBuilder = new AlertDialog.Builder(this);
+        confirmAddBuilder.setMessage("Are you sure you want to add the entry?");
+        confirmAddBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                          dialog.cancel();
+            }
+        });
+
+        confirmAddBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
                 setStrings();
                 getAccountID();
 
@@ -58,26 +90,48 @@ public class AddPasswordPage extends AppCompatActivity {
 
                     if(database.createPasswordAccount(accounts,accountPasswords)){
                         clearFields();
-                        Toast.makeText(AddPasswordPage.this, "SUCCESS", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddPasswordPage.this, "Entry Added!", Toast.LENGTH_SHORT).show();
                         finish();
                     }else{
-                        Toast.makeText(AddPasswordPage.this, "FAIL", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddPasswordPage.this, "Failed", Toast.LENGTH_SHORT).show();
                     }
                 }
-
             }
         });
 
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        confirmAdd = confirmAddBuilder.create();
+        confirmAdd.show();
+        nButton = confirmAdd.getButton(DialogInterface.BUTTON_NEGATIVE);
+        nButton.setTextColor(Color.WHITE);
+        pButton = confirmAdd.getButton(DialogInterface.BUTTON_POSITIVE);
+        pButton.setTextColor(Color.WHITE);
     }
 
+    private void cancel(){
+        AlertDialog.Builder confirmAddBuilder = new AlertDialog.Builder(this);
+        confirmAddBuilder.setMessage("Are you sure you want to go back?");
+        confirmAddBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
 
+        confirmAddBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+               finish();
 
+            }
+        });
+
+        confirmAdd = confirmAddBuilder.create();
+        confirmAdd.show();
+        nButton = confirmAdd.getButton(DialogInterface.BUTTON_NEGATIVE);
+        nButton.setTextColor(Color.WHITE);
+        pButton = confirmAdd.getButton(DialogInterface.BUTTON_POSITIVE);
+        pButton.setTextColor(Color.WHITE);
+    }
 
     private void getAccountID(){
 
@@ -132,30 +186,6 @@ public class AddPasswordPage extends AppCompatActivity {
         }else{
             titleField.setError(null);
             titleField.setErrorEnabled(false);
-            return true;
-        }
-    }
-
-    private boolean validateUsername(){
-
-        if(inputUsername.isEmpty()){
-            usernameField.setError(getString(R.string.fieldError));
-            return false;
-        }else{
-            usernameField.setError(null);
-            usernameField.setErrorEnabled(false);
-            return true;
-        }
-    }
-
-    private boolean validatePassword(){
-
-        if(inputPassword.isEmpty()){
-            passwordField.setError(getString(R.string.fieldError));
-            return false;
-        }else{
-            passwordField.setError(null);
-            passwordField.setErrorEnabled(false);
             return true;
         }
     }
