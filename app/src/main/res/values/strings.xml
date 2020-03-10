@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MobileProgFinalProject</string>
+    <string name="app_name">PassVault</string>
 
     <string name="fieldError">Field Can\'t Be Empty</string>
     <string name="passwordError">Password does not match</string>
