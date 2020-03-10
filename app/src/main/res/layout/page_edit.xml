@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:theme="@style/AppTheme">
+    android:theme="@style/registerTheme">
 
 
     <com.google.android.material.textfield.TextInputLayout
@@ -17,6 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/login_marginTop"
+        style="@style/registerTextInputStyle"
         app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -35,6 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/addPasswordTextInputLayout_height"
         android:layout_marginTop="@dimen/login_marginTop"
+        style="@style/registerTextInputStyle"
         app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -52,6 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/addPasswordTextInputLayout_height"
         android:layout_marginTop="@dimen/login_marginTop"
+        style="@style/registerTextInputStyle"
         app:errorEnabled="true">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -65,8 +68,8 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <RelativeLayout
-        android:layout_width="256dp"
-        android:layout_height="63dp">
+        android:layout_width="260dp"
+        android:layout_height="64dp">
 
         <ImageView
             android:id="@+id/editPageGenerateButton"
@@ -80,6 +83,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editPasswordField"
+            style="@style/registerTextInputStyle"
             android:layout_width="@dimen/PasswordLayoutWidth"
             android:layout_height="@dimen/addPasswordTextInputLayout_height"
             android:layout_marginTop="@dimen/login_marginTop"
@@ -104,6 +108,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/addPasswordTextInputLayout_height"
         android:layout_marginTop="@dimen/login_marginTop"
+        style="@style/registerTextInputStyle"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -123,6 +128,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/addPasswordTextInputLayout_height"
         android:layout_marginTop="@dimen/login_marginTop"
+        style="@style/registerTextInputStyle"
         >
 
         <com.google.android.material.textfield.TextInputEditText

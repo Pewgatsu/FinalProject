@@ -24,7 +24,7 @@
 
 
 
-    <string name="exit">exit</string>
+    <string name="exit">Exit</string>
 
     <string name="title_activity_home_page">Welcome</string>
 
@@ -54,6 +54,37 @@
     <string name="settingsAccount">Account</string>
     <string name="settingsHelp">Help</string>
     <string name="settingsAbout">About</string>
+
+    <string name="part1Title">I.Creating an Account</string>
+    <string name="part2Title">II.Navigating the Home Page</string>
+    <string name="part3Title">III.Viewing an Entry</string>
+    <string name="part4Title">IV.Editing an Entry</string>
+    <string name="part5Title">V. Deleting an Entry</string>
+    <string name="part6Title">VI. Viewing your Account Details</string>
+    <string name="part7Title">VII. Deleting an Account</string>
+    <string name="part8Title">VIII. Enabling Notifications</string>
+
+    <string name="part1">
+        \tTo create an account, click the sign-up button, you will be redirected to a page.
+        \tEnter your account details and click the continue button.
+        \tYou can now proceed to login by entering the account credentials you in the login page.</string>
+    <string name="part2">
+        \tTo add an entry, click on the floating action button at the bottom-right of the screen.
+        \tEnter the title of your entry, the account associated, the username, and the password.</string>
+    <string name="part3">
+        \tTo view an entry, navigate to the home page and click an entry you want to view.</string>
+    <string name="part4">
+        \tTo edit an entry, click first an entry you want to view and edit, then click the pen icon on the top-right part of the screen.
+        \tTo save the changes you have made, click on the save icon at the menu bar, if you want to cancel, click the delete icon beside the save icon.</string>
+    <string name="part5">
+        \tTo delete an entry, click the floating action button at the bottom-right of the screen on the details of an entry.</string>
+    <string name="part6">
+        \tTo view your account, navigate to the settings and then click the account icon.</string>
+    <string name="part7">
+        \tTo delete an account, on the account details, click the delete account button.</string>
+    <string name="part8">
+        \tTo enable notifications, on the settings page, click the notification switch to enable notifications and vice versa to disable it.</string>
+    <string name="manual">USER MANUAL</string>
 
 
 

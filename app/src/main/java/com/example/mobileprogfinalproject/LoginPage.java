@@ -2,6 +2,7 @@ package com.example.mobileprogfinalproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -52,7 +53,7 @@ public class LoginPage extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     }else{
-
+                        openLoginFailDialog();
                     }
                 }
 
@@ -111,6 +112,11 @@ public class LoginPage extends AppCompatActivity {
         }else{
             return true;
         }
+    }
+
+    private void openLoginFailDialog(){
+        LoginFailDialog failDialog = new LoginFailDialog();
+        failDialog.show(getSupportFragmentManager(),"Example Dialog");
     }
 
 

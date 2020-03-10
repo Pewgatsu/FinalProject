@@ -39,8 +39,10 @@
         <activity android:name=".EditPage"
                   >
         </activity>
-        <activity android:name=".AccountPage">
+        <activity android:name=".AccountPage"
+                  >
         </activity>
+        <activity android:name=".UserManual"></activity>
 
 
     </application>

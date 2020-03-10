@@ -124,6 +124,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return res;
     }
 
+    public Cursor getHeaderDetails(){
+        db = this.getWritableDatabase();
+        res = db.rawQuery("select ACCOUNT_FULLNAME, ACCOUNT_EMAIL FROM "+ACCOUNTS_TABLE,null);
+        return res;
+    }
+
 
     public Passwords getPasswords(int id){
         db =this.getWritableDatabase();

@@ -16,7 +16,7 @@
         android:id="@+id/notificationsContainer"
         android:layout_width="@dimen/settingsComponentWidth"
         android:layout_height="@dimen/settingsComponentHeight"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/settings_text_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,49 +49,14 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/generalContainer"
+        android:id="@+id/accountContainer"
         android:layout_width="@dimen/settingsComponentWidth"
         android:layout_height="@dimen/settingsComponentHeight"
-        android:layout_marginTop="@dimen/settingsContainerMarginTop"
+        android:layout_marginTop="28dp"
         android:background="@drawable/settings_text_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/notificationsContainer">
-
-        <TextView
-            android:id="@+id/generalText"
-            android:layout_width="@dimen/settingsTextViewWidth"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="@dimen/settingsVerticalMargin"
-            android:layout_marginEnd="@dimen/settingsMarginEnd"
-            android:layout_marginBottom="@dimen/settingsVerticalMargin"
-            android:textColor="@color/colorPrimary"
-            android:text="@string/settingsGeneral"
-            android:textSize="@dimen/settingsFontSize"/>
-
-        <ImageView
-            android:id="@+id/generalIcon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="@dimen/settingsVerticalMargin"
-            android:layout_marginEnd="@dimen/settingsImageEndMargin"
-            android:layout_toStartOf="@+id/generalText"
-            app:srcCompat="@drawable/settings_icon" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/accountContainer"
-        android:layout_width="@dimen/settingsComponentWidth"
-        android:layout_height="@dimen/settingsComponentHeight"
-        android:layout_marginTop="@dimen/settingsContainerMarginTop"
-        android:background="@drawable/settings_text_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/generalContainer">
 
         <TextView
             android:id="@+id/accountText"
@@ -103,9 +68,9 @@
             android:layout_marginTop="@dimen/settingsVerticalMargin"
             android:layout_marginEnd="@dimen/settingsMarginEnd"
             android:layout_marginBottom="@dimen/settingsVerticalMargin"
-            android:textColor="@color/colorPrimary"
             android:text="@string/settingsAccount"
-            android:textSize="@dimen/settingsFontSize"/>
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/settingsFontSize" />
 
         <ImageView
             android:id="@+id/accountIcon"

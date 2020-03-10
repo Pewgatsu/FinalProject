@@ -1,10 +1,12 @@
 package com.example.mobileprogfinalproject;
 
+import android.accounts.Account;
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.database.Cursor;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -36,6 +38,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.Menu;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -54,6 +58,12 @@ public class HomePage extends AppCompatActivity implements AppBarConfiguration.O
     private Bundle extras;
     private AlertDialog.Builder confirmLogoutBuilder;
     private AlertDialog confirmLogout;
+    private TextView name, email;
+    private Accounts newAccounts;
+    private View navHeaderView;
+    private Cursor res;
+    private DatabaseHelper database;
+    private ImageView headerImage;
 
 
 
@@ -65,10 +75,14 @@ public class HomePage extends AppCompatActivity implements AppBarConfiguration.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page_drawer);
 
-
+        database = new DatabaseHelper(this);
         initializeWidgets();
         setSupportActionBar(toolbar);
+        getAccountID();
 
+        newAccounts = new Accounts(accountID);
+
+        getDetails();
 
 
 
@@ -153,9 +167,14 @@ public class HomePage extends AppCompatActivity implements AppBarConfiguration.O
         return true;
     }
 
+    private void getDetails(){
+        res = database.getProfileDetails();
 
-
-
+        while(res.moveToNext()){
+            name.setText(res.getString(0));
+            email.setText(res.getString(1));
+        }
+    }
 
 
 
@@ -215,10 +234,16 @@ public class HomePage extends AppCompatActivity implements AppBarConfiguration.O
 
 
     private void initializeWidgets(){
+
+
         addPassword = findViewById(R.id.fab);
         toolbar = findViewById(R.id.toolbar);
         drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
+        navHeaderView = navigationView.getHeaderView(0);
+        name = navHeaderView.findViewById(R.id.drawer_name);
+        email = navHeaderView.findViewById(R.id.drawer_email);
+        headerImage = navHeaderView.findViewById(R.id.nav_imageView);
     }
 
 

@@ -32,7 +32,7 @@ public class AccountPage extends AppCompatActivity {
         setContentView(R.layout.page_account);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Account");
+        getSupportActionBar().setTitle(" ");
 
 
         deleteAccount = findViewById(R.id.deleteAccountButton);

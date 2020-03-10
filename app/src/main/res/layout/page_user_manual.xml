@@ -1,6 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-</LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/manual"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/part1title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/part1Title"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/part1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/part1"
+                android:textAlignment="viewStart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/part2title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/part2Title"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/part2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/part2"
+                android:textAlignment="viewStart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/part1" />
+
+            <TextView
+                android:id="@+id/part3title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/part3Title"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/part3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/part3"
+                android:textAlignment="viewStart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/part2" />
+
+            <TextView
+                android:id="@+id/part4title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/part4Title"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/part4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/part4"
+                android:textAlignment="viewStart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/part3" />
+
+            <TextView
+                android:id="@+id/part5title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/part5Title"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/part5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/part5"
+                android:textAlignment="viewStart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/part4" />
+
+            <TextView
+                android:id="@+id/part6title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/part6Title"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/part6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/part6"
+                android:textAlignment="viewStart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/part5" />
+
+            <TextView
+                android:id="@+id/part7title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/part7Title"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/part7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/part7"
+                android:textAlignment="viewStart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/part6" />
+
+            <TextView
+                android:id="@+id/part8title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/part8Title"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/part8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/part8"
+                android:textAlignment="viewStart"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/part7" />
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

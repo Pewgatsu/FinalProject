@@ -31,7 +31,7 @@ public class EditPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_edit);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        getSupportActionBar().setTitle(" ");
 
         initializeWidgets();
 

@@ -30,7 +30,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 public class SettingsFragment extends Fragment {
 
 
-   private Typeface arialFont;
+
    private FloatingActionButton floatingActionButton;
    private RelativeLayout accountContainer, aboutContainer, helpContainer;
    private Switch notifSwitch;
@@ -98,7 +98,8 @@ public class SettingsFragment extends Fragment {
         helpContainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openHelpDialog();
+                intent = new Intent(getActivity(),UserManual.class);
+                startActivity(intent);
             }
         });
 
@@ -124,10 +125,7 @@ public class SettingsFragment extends Fragment {
         aboutDialog.show(getParentFragmentManager(),"Example Dialog");
     }
 
-    private void openHelpDialog(){
-        HelpDialog helpDialog = new HelpDialog();
-        helpDialog.show(getParentFragmentManager(),"Example Dialog");
-    }
+
 
     public void sendNotification() {
         builder = new NotificationCompat.Builder(getActivity());
